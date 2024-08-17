@@ -1,47 +1,36 @@
-import PlausibleClient, { type PlausibleOptions } from "plausible-tracker";
-import { type ParentProps, Show, createContext, createEffect, createSignal, onCleanup, useContext } from "solid-js";
+import { type PlausibleOptions, createPlausibleTracker } from "@barbapapazes/plausible-tracker";
+import { useAutoOutboundTracking } from "@barbapapazes/plausible-tracker/extensions/auto-outbound-tracking";
+import { useAutoPageviews } from "@barbapapazes/plausible-tracker/extensions/auto-pageviews";
+import { type Accessor, type ParentProps, createContext, createEffect, createSignal, onCleanup } from "solid-js";
 import { isServer } from "solid-js/web";
 
-type ContextType = ReturnType<typeof PlausibleClient>;
-const createClient = (opts?: PlausibleOptions) => PlausibleClient(opts);
-const Plausible = createContext<ContextType>(undefined);
+type ContextType = ReturnType<typeof createPlausibleTracker>;
 
-type PlausibleProviderProps = ParentProps &
-  PlausibleOptions & {
-    disablePageviewTracking?: boolean;
-    enableOutboundTracking?: boolean;
-  };
+const [client, setClient] = createSignal<ContextType>();
+const PlausibleContext = createContext<Accessor<ContextType | undefined>>(client);
 
+type PlausibleProviderProps = ParentProps & Partial<PlausibleOptions>;
 export const PlausibleProvider = (props: PlausibleProviderProps) => {
-  const { children, disablePageviewTracking, enableOutboundTracking, ...opts } = props;
   const listeners: (() => void)[] = [];
-
-  const [client, setClient] = createSignal<ContextType>();
+  const { children, ...opts } = props;
 
   createEffect(() => {
     if (isServer) {
       return;
     }
 
-    const client = setClient(createClient(opts));
+    const client = setClient(createPlausibleTracker(opts));
 
-    if (!disablePageviewTracking) {
-      listeners.push(client.enableAutoPageviews());
-    }
+    const { install: installPageviewTracker, cleanup: cleanupPageviewTracker } = useAutoPageviews(client);
+    listeners.push(cleanupPageviewTracker);
+    installPageviewTracker();
 
-    if (enableOutboundTracking) {
-      listeners.push(client.enableAutoOutboundTracking());
-    }
+    const { install: installOutboundTracker, cleanup: cleanupOutboundTracker } = useAutoOutboundTracking(client);
+    listeners.push(cleanupOutboundTracker);
+    installOutboundTracker();
   });
 
   onCleanup(() => listeners.map((cleanup) => cleanup()));
 
-  return (
-    <Show when={client()} fallback={children}>
-      {(actualClient) => <Plausible.Provider value={actualClient()}>{children}</Plausible.Provider>}
-    </Show>
-  );
+  return <PlausibleContext.Provider value={client}>{children}</PlausibleContext.Provider>;
 };
-
-export const useTrackEvent = () => useContext(Plausible)?.trackEvent;
-export const useTrackPageview = () => useContext(Plausible)?.trackPageview;

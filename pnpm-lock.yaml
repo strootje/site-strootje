@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@barbapapazes/plausible-tracker':
+    specifier: ^0.5.2
+    version: 0.5.2
   '@sentry/solidstart':
     specifier: ^8.26.0
     version: 8.26.0(@opentelemetry/api@1.9.0)(@opentelemetry/core@1.25.1)(@opentelemetry/sdk-trace-base@1.25.1)(@opentelemetry/semantic-conventions@1.25.1)(@solidjs/router@0.14.2)(@solidjs/start@1.0.6)(solid-js@1.8.21)
@@ -16,9 +19,6 @@ dependencies:
   motion:
     specifier: ^10.18.0
     version: 10.18.0
-  plausible-tracker:
-    specifier: ^0.3.9
-    version: 0.3.9
   solid-js:
     specifier: ^1.8.21
     version: 1.8.21
@@ -357,6 +357,10 @@ packages:
       '@babel/helper-string-parser': 7.24.8
       '@babel/helper-validator-identifier': 7.24.7
       to-fast-properties: 2.0.0
+
+  /@barbapapazes/plausible-tracker@0.5.2:
+    resolution: {integrity: sha512-su3ut2STFDV+pVCRd0SbCYCA31YWqqEk0Z4/vDMeGvqLMw5hJaQt2mXxbbokIzXTnjODDTeCA/m+TjkHRTWBEg==}
+    dev: false
 
   /@biomejs/biome@1.8.3:
     resolution: {integrity: sha512-/uUV3MV+vyAczO+vKrPdOW0Iaet7UnJMU4bNMinggGJTAnBPjCoLEYcyYtYHNnUNYlv4xZMH6hVIQCAozq8d5w==}
@@ -4728,11 +4732,6 @@ packages:
       confbox: 0.1.7
       mlly: 1.7.1
       pathe: 1.1.2
-
-  /plausible-tracker@0.3.9:
-    resolution: {integrity: sha512-hMhneYm3GCPyQon88SZrVJx+LlqhM1kZFQbuAgXPoh/Az2YvO1B6bitT9qlhpiTdJlsT5lsr3gPmzoVjb5CDXA==}
-    engines: {node: '>=10'}
-    dev: false
 
   /postcss@8.4.41:
     resolution: {integrity: sha512-TesUflQ0WKZqAvg52PWL6kHgLKP6xB6heTOdoYM0Wt2UHyxNa4K25EZZMgKns3BH1RLVbZCREPpLY0rhnNoHVQ==}

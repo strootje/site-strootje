@@ -10,7 +10,7 @@ import { SentryRouter } from "./contexts/SentryContext";
 export default function App() {
   return (
     <I18nProvider locale="en">
-      <PlausibleProvider apiHost="https://stats.strooweb.nl" domain="strootje.com" trackLocalhost={false}>
+      <PlausibleProvider apiHost="https://stats.strooweb.nl" domain="strootje.com">
         <SentryRouter root={(props) => <Suspense>{props.children}</Suspense>}>
           <FileRoutes />
         </SentryRouter>

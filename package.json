@@ -9,12 +9,12 @@
     "fix": "biome check --write"
   },
   "dependencies": {
+    "@barbapapazes/plausible-tracker": "^0.5.2",
     "@sentry/solidstart": "^8.26.0",
     "@solid-primitives/i18n": "^2.1.1",
     "@solidjs/router": "^0.14.2",
     "@solidjs/start": "^1.0.6",
     "motion": "^10.18.0",
-    "plausible-tracker": "^0.3.9",
     "solid-js": "^1.8.21",
     "solid-motionone": "^1.0.0"
   },
