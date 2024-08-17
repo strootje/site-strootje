@@ -39,14 +39,14 @@ export default function HomePage() {
         <nav>
           <ul class="flex gap-2">
             <li>
-              <a href="https://stats.strooweb.nl/strootje.com">
+              <a class="flex gap-1 items-baseline underline" href="https://stats.strooweb.nl/strootje.com">
                 <i class="i-simple:plausibleanalytics" />
                 <span>{t("components.page-footer.menus.main.plausible.text")}</span>
               </a>
             </li>
 
             <li>
-              <a href="https://github.com/strootje/site-strootje">
+              <a class="flex gap-1 items-baseline underline" href="https://github.com/strootje/site-strootje">
                 <i class="i-brands:github" />
                 <span>{t("components.page-footer.menus.main.sources.text")}</span>
               </a>

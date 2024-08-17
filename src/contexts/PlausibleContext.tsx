@@ -8,14 +8,12 @@ const Plausible = createContext<ContextType>(undefined);
 
 type PlausibleProviderProps = ParentProps &
   PlausibleOptions & {
-    disable?: {
-      autoPageviewTracking: boolean;
-      autoOutboundTracking: boolean;
-    };
+    disablePageviewTracking?: boolean;
+    enableOutboundTracking?: boolean;
   };
 
 export const PlausibleProvider = (props: PlausibleProviderProps) => {
-  const { children, disable, ...opts } = props;
+  const { children, disablePageviewTracking, enableOutboundTracking, ...opts } = props;
   const listeners: (() => void)[] = [];
 
   const [client, setClient] = createSignal<ContextType>();
@@ -27,11 +25,11 @@ export const PlausibleProvider = (props: PlausibleProviderProps) => {
 
     const client = setClient(createClient(opts));
 
-    if (!disable?.autoOutboundTracking) {
+    if (!disablePageviewTracking) {
       listeners.push(client.enableAutoPageviews());
     }
 
-    if (!disable?.autoOutboundTracking) {
+    if (enableOutboundTracking) {
       listeners.push(client.enableAutoOutboundTracking());
     }
   });
