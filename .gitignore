@@ -1,28 +1,28 @@
 
 dist
-.solid
+# .solid
 .output
-.vercel
-.netlify
+# .vercel
+# .netlify
 .vinxi
 
-# Environment
-.env
-.env*.local
+# # Environment
+# .env
+# .env*.local
 
 # dependencies
 /node_modules
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-*.launch
-.settings/
+# # IDEs and editors
+# /.idea
+# .project
+# .classpath
+# *.launch
+# .settings/
 
-# Temp
-gitignore
+# # Temp
+# gitignore
 
-# System Files
-.DS_Store
-Thumbs.db
+# # System Files
+# .DS_Store
+# Thumbs.db
