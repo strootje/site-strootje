@@ -1,3 +1,4 @@
+import { A } from "@solidjs/router";
 import { useTranslator } from "~/contexts/I18nContext";
 
 export default function HomePage() {
@@ -11,10 +12,10 @@ export default function HomePage() {
         <nav>
           <ul class="flex flex-col gap-2">
             <li>
-              <a class="px-2 py-1 rounded b-amber b-1 flex items-center" href="https://github.com/strootje" target="_blank" rel="noreferrer">
+              <A class="px-2 py-1 rounded b-amber b-1 flex items-center" href="/about">
                 <i class="i-brands:github-alt" />
                 <span class="grow-1">{t("pages.home.menus.main.about.text")}</span>
-              </a>
+              </A>
             </li>
 
             <li>
