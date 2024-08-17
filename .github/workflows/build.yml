@@ -10,7 +10,7 @@ on:
   pull_request: {branches: [ "master" ]}
 
 env:
-  IMAGE_NAME: strooweb/site-strootje
+  IMAGE_NAME: strootje/site-strootje
   REGISTRY: ghcr.io
 
 jobs:
