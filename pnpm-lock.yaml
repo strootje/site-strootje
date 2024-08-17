@@ -4,6 +4,9 @@ dependencies:
   '@sentry/solidstart':
     specifier: ^8.26.0
     version: 8.26.0(@opentelemetry/api@1.9.0)(@opentelemetry/core@1.25.1)(@opentelemetry/sdk-trace-base@1.25.1)(@opentelemetry/semantic-conventions@1.25.1)(@solidjs/router@0.14.2)(@solidjs/start@1.0.6)(solid-js@1.8.21)
+  '@solid-primitives/i18n':
+    specifier: ^2.1.1
+    version: 2.1.1(solid-js@1.8.21)
   '@solidjs/router':
     specifier: ^0.14.2
     version: 0.14.2(solid-js@1.8.21)
@@ -2263,6 +2266,14 @@ packages:
   /@sindresorhus/merge-streams@2.3.0:
     resolution: {integrity: sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==}
     engines: {node: '>=18'}
+
+  /@solid-primitives/i18n@2.1.1(solid-js@1.8.21):
+    resolution: {integrity: sha512-1p9B8hveu+gzFRWfXcRtdzzEdr7gw3c8uLXm+2bU33JHgiI8kYJsWvG128sE6vU1ZtYGPrGq980Jd6hxYupyZQ==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      solid-js: 1.8.21
+    dev: false
 
   /@solid-primitives/props@3.1.11(solid-js@1.8.21):
     resolution: {integrity: sha512-jZAKWwvDRHjiydIumDgMj68qviIbowQ1ci7nkEAgzgvanNkhKSQV8iPgR2jMk1uv7S2ZqXYHslVQTgJel/TEyg==}
