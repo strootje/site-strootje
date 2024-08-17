@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vinxi dev",
     "build": "vinxi build",
-    "start": "vinxi start"
+    "start": "vinxi start",
+    "fix": "biome check --write"
   },
   "dependencies": {
     "@sentry/solidstart": "^8.26.0",
