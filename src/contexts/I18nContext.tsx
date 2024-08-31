@@ -16,11 +16,8 @@ type I18nProviderProps = ParentProps & {
   locale: Locale;
 };
 
-export const I18nProvider = (props: I18nProviderProps) => {
-  const { children, locale } = props;
-
+export const I18nProvider = ({ children, locale }: I18nProviderProps) => {
   const localeDict = createMemo(() => flatten(dicts[locale]));
-
   return <I18nContext.Provider value={localeDict()}>{children}</I18nContext.Provider>;
 };
 

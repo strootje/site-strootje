@@ -9,13 +9,14 @@
     "fix": "biome check --write"
   },
   "dependencies": {
-    "@barbapapazes/plausible-tracker": "^0.5.2",
     "@sentry/solidstart": "^8.26.0",
     "@solid-primitives/i18n": "^2.1.1",
-    "@solidjs/router": "^0.14.2",
+    "@solid-primitives/storage": "^4.0.0",
+    "@solidjs/router": "^0.13.4",
     "@solidjs/start": "^1.0.6",
+    "@strootje/solid-plausible": "npm:@jsr/strootje__solid-plausible@^0.2.3",
     "motion": "^10.18.0",
-    "solid-js": "^1.8.21",
+    "solid-js": "^1.8.22",
     "solid-motionone": "^1.0.0"
   },
   "devDependencies": {
@@ -23,8 +24,10 @@
     "@iconify-json/fa6-brands": "^1.1.22",
     "@iconify-json/simple-icons": "^1.1.113",
     "@julr/unocss-preset-heropatterns": "^1.0.2",
+    "@strootje/biomejs": "npm:@jsr/strootje__biomejs@^1.0.3",
     "@unocss/reset": "^0.62.1",
     "unocss": "^0.62.1",
-    "vinxi": "^0.4.1"
+    "vinxi": "^0.4.1",
+    "vite-imagetools": "^7.0.4"
   }
 }
