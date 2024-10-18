@@ -1,33 +1,32 @@
 {
   "private": true,
   "type": "module",
-  "name": "strootje-com",
+  "name": "site-strootje",
   "scripts": {
     "dev": "vinxi dev",
     "build": "vinxi build",
-    "start": "vinxi start",
-    "fix": "biome check --write"
+    "start": "vinxi start"
   },
   "dependencies": {
-    "@sentry/solidstart": "^8.26.0",
+    "@iconify-json/fa6-solid": "^1.2.1",
+    "@sentry/solidstart": "^8.34.0",
     "@solid-primitives/i18n": "^2.1.1",
-    "@solid-primitives/storage": "^4.0.0",
-    "@solidjs/router": "^0.13.4",
-    "@solidjs/start": "^1.0.6",
-    "@strootje/solid-plausible": "npm:@jsr/strootje__solid-plausible@^0.2.3",
+    "@solid-primitives/storage": "^4.2.1",
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^0.14.10",
+    "@solidjs/start": "^1.0.9",
+    "@strootje/solid-plausible": "npm:@jsr/strootje__solid-plausible@^0.2.4",
     "motion": "^10.18.0",
-    "solid-js": "^1.8.22",
-    "solid-motionone": "^1.0.0"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
-    "@iconify-json/fa6-brands": "^1.1.22",
-    "@iconify-json/simple-icons": "^1.1.113",
+    "solid-js": "^1.9.2",
+    "solid-motionone": "^1.0.2",
+    "@biomejs/biome": "^1.9.4",
+    "@iconify-json/fa6-brands": "^1.2.1",
+    "@iconify-json/simple-icons": "^1.2.8",
     "@julr/unocss-preset-heropatterns": "^1.0.2",
-    "@strootje/biomejs": "npm:@jsr/strootje__biomejs@^1.0.3",
-    "@unocss/reset": "^0.62.1",
-    "unocss": "^0.62.1",
-    "vinxi": "^0.4.1",
+    "@strootje/biomejs": "npm:@jsr/strootje__biomejs@^1.0.4",
+    "@unocss/reset": "^0.63.4",
+    "unocss": "^0.63.4",
+    "vinxi": "^0.4.3",
     "vite-imagetools": "^7.0.4"
   }
 }

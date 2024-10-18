@@ -1,0 +1,57 @@
+{
+  "site": {
+    "menus": {
+      "main": {
+        "items": {
+          "resume": {
+            "text": "Resume",
+            "title": "View my resume"
+          },
+
+          "articles": {
+            "text": "Articles",
+            "title": "Read my articles"
+          }
+        }
+      },
+
+      "socials": {
+        "items": {
+          "github": {
+            "title": "Visit my github profile"
+          },
+
+          "instagram": {
+            "title": "Visit my instagram profile"
+          },
+
+          "tiktok": {
+            "title": "Visit my tiktok profile"
+          },
+
+          "linkedin": {
+            "title": "Visit my linkedin profile"
+          }
+        }
+      },
+
+      "footer": {
+        "items": {
+          "plausible": {
+            "text": "Plausible",
+            "title": "View analytics for this site"
+          },
+
+          "github": {
+            "text": "Github",
+            "title": "View source for this site"
+          }
+        }
+      }
+    }
+  },
+
+  "pages": {},
+
+  "components": {}
+}

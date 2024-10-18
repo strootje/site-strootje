@@ -1,4 +1,4 @@
-import { sentryBeforeResponseMiddleware } from "@sentry/solidstart/middleware";
+import { sentryBeforeResponseMiddleware } from "@sentry/solidstart";
 import { createMiddleware } from "@solidjs/start/middleware";
 
 export default createMiddleware({

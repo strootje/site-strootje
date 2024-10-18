@@ -1,6 +1,6 @@
 import { type Flatten, flatten, translator } from "@solid-primitives/i18n";
 import { type ParentProps, createContext, createMemo, useContext } from "solid-js";
-import { default as en } from "~/locales/en.json";
+import { default as en } from "~/assets/locales/en.json";
 
 type LocaleDict = typeof en;
 
