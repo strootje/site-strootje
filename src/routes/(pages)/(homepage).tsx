@@ -1,25 +1,37 @@
+import JodiestainsSrc from "~/assets/images/jodiestains.png?format=webp&w=100&imagetools";
+import MagicnonsenseSrc from "~/assets/images/magicnonsense.png?format=webp&w=100&imagetools";
 import { Avatar } from "~/components/Avatar";
 import { SocialMenu } from "~/components/SocialMenu";
-import { useTranslator } from "~/providers/LocaleProvider";
 
 export default function HomePage() {
-  const t = useTranslator();
-
   return (
     <>
       <Avatar />
       <SocialMenu />
-      {/* <MainMenu /> */}
 
-      <aside class="flex flex-col">
-        <ul class="grid grid-cols-3 gap-2">
-          <li class="h-20 w-20 overflow-hidden bg-red p-1">kc hair cutter</li>
-          <li class="h-20 w-20 overflow-hidden bg-red p-1">jodie stains</li>
-          <li class="h-20 w-20 overflow-hidden bg-red p-1">cadeau doek</li>
-          <li class="h-20 w-20 overflow-hidden bg-red p-1">magic nonsense</li>
-          <li class="h-20 w-20 overflow-hidden bg-red p-1">cutting edge</li>
-          <li class="h-20 w-20 shrink-0 bg-green p-1" />
-        </ul>
+      <aside class="grid w-64 grid-flow-dense grid-cols-3 gap-2">
+        <article class="relative aspect-ratio-square w-full overflow-hidden rounded border-2 border-amber border-solid bg-red p-2">
+          <img class="absolute top-0 right-0 bottom-0 left-0" src={JodiestainsSrc} alt="Screenshot of Jodiestains.com" />
+        </article>
+
+        <article class="relative aspect-ratio-square w-full overflow-hidden rounded border-2 border-amber border-solid bg-red p-2">
+          <img class="absolute top-0 right-0 bottom-0 left-0" src={MagicnonsenseSrc} alt="Screenshot of Magic-Nonsense.com" />
+        </article>
+
+        <article class="relative aspect-ratio-square w-full overflow-hidden rounded border-2 border-amber border-solid bg-red p-2">
+          <div class="absolute top-0 right-0 bottom-0 left-0 bg-hero-wiggle-slate-700" />
+        </article>
+        <article class="relative aspect-ratio-square w-full overflow-hidden rounded border-2 border-amber border-solid bg-red p-2">
+          <div class="absolute top-0 right-0 bottom-0 left-0 bg-hero-wiggle-slate-700" />
+        </article>
+
+        <article class="relative aspect-ratio-square w-full overflow-hidden rounded border-2 border-amber border-solid bg-red p-2">
+          <div class="absolute top-0 right-0 bottom-0 left-0 bg-hero-wiggle-slate-700" />
+        </article>
+
+        <article class="relative aspect-ratio-square w-full overflow-hidden rounded border-2 border-amber border-solid bg-green p-2">
+          <div class="absolute top-0 right-0 bottom-0 left-0 bg-hero-wiggle-slate-700" />
+        </article>
       </aside>
     </>
   );

@@ -3,6 +3,9 @@ import { defineConfig, presetIcons, presetUno } from "unocss";
 
 export default defineConfig({
   presets: [
+    presetUno(),
+    presetHeroPatterns(),
+
     presetIcons({
       extraProperties: {
         display: "inline-block",
@@ -14,9 +17,5 @@ export default defineConfig({
         brands: () => import("@iconify-json/fa6-brands/icons.json").then((i) => i.default),
       },
     }),
-    presetUno({
-      dark: "media",
-    }),
-    presetHeroPatterns(),
   ],
 });

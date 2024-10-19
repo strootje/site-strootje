@@ -1,18 +1,21 @@
 import { A } from "@solidjs/router";
+import type { ComponentProps } from "solid-js";
+import { PageRoutes } from "~/consts";
 import { useTranslator } from "~/providers/LocaleProvider";
 
-export const Footer = () => {
+export const Footer = (props: ComponentProps<"footer">) => {
   const t = useTranslator();
 
   return (
-    <footer>
+    <footer {...props}>
       <nav>
-        <ul class="flex gap-2">
+        <ul class="flex gap-2 py-2">
           <li>
             <A
-              class="flex items-baseline gap-1 px-2 py-1 underline"
+              class="flex items-center gap-1 rounded bg-slate-100 px-2 py-1"
               title={t("site.menus.footer.items.analytics.title")}
-              href="https://stats.strooweb.nl/strootje.com"
+              href={PageRoutes.footer.analytics}
+              target="_blank"
             >
               <i class="i-simple:plausibleanalytics" />
               <span>{t("site.menus.footer.items.analytics.text")}</span>
@@ -21,9 +24,10 @@ export const Footer = () => {
 
           <li>
             <A
-              class="flex items-baseline gap-1 px-2 py-1 underline"
+              class="flex items-center gap-1 rounded bg-slate-100 px-2 py-1"
               title={t("site.menus.footer.items.source.title")}
-              href="https://github.com/strootje/site-strootje"
+              href={PageRoutes.footer.source}
+              target="_blank"
             >
               <i class="i-brands:github" />
               <span>{t("site.menus.footer.items.source.text")}</span>
