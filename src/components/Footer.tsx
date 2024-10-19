@@ -11,22 +11,22 @@ export const Footer = () => {
           <li>
             <A
               class="flex items-baseline gap-1 px-2 py-1 underline"
-              title={t("site.menus.footer.items.plausible.title")}
+              title={t("site.menus.footer.items.analytics.title")}
               href="https://stats.strooweb.nl/strootje.com"
             >
               <i class="i-simple:plausibleanalytics" />
-              <span>{t("site.menus.footer.items.plausible.text")}</span>
+              <span>{t("site.menus.footer.items.analytics.text")}</span>
             </A>
           </li>
 
           <li>
             <A
               class="flex items-baseline gap-1 px-2 py-1 underline"
-              title={t("site.menus.footer.items.github.title")}
+              title={t("site.menus.footer.items.source.title")}
               href="https://github.com/strootje/site-strootje"
             >
               <i class="i-brands:github" />
-              <span>{t("site.menus.footer.items.github.text")}</span>
+              <span>{t("site.menus.footer.items.source.text")}</span>
             </A>
           </li>
         </ul>
