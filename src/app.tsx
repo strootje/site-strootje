@@ -1,9 +1,9 @@
 import "@unocss/reset/tailwind.css";
 import "virtual:uno.css";
 
+import { PlausibleProvider } from "@jsr/strootje__solid-plausible";
 import { MetaProvider, Title } from "@solidjs/meta";
 import { FileRoutes } from "@solidjs/start/router";
-import { PlausibleProvider } from "@strootje/solid-plausible";
 import { type ParentProps, Suspense } from "solid-js";
 import { I18nProvider } from "./providers/LocaleProvider";
 import { SentryRouter } from "./providers/SentryProvider";

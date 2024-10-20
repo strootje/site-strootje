@@ -19,7 +19,7 @@
     "@solidjs/router": "^0.14.10",
     "@solidjs/start": "^1.0.9",
     "@strootje/biomejs": "npm:@jsr/strootje__biomejs@^1.0.4",
-    "@strootje/solid-plausible": "npm:@jsr/strootje__solid-plausible@^0.2.4",
+    "@jsr/strootje__solid-plausible": "^0.2.4",
     "@unocss/reset": "^0.63.4",
     "solid-js": "^1.9.2",
     "unocss": "^0.63.4",

@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: website-strootje
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: acme-letsencrypt-production
+
+spec:
+  rules:
+    - host: strootje.com
+      http:
+        paths:
+          - { path: /, backend: { service: { name: website-strootje, port: { name: http } } }, pathType: Prefix }
+  tls: [{ hosts: [strootje.com], secretName: prd-website-strootje-certs }]
+  ingressClassName: traefik

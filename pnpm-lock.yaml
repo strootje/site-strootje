@@ -13,6 +13,9 @@ dependencies:
   '@iconify-json/simple-icons':
     specifier: ^1.2.8
     version: 1.2.8
+  '@jsr/strootje__solid-plausible':
+    specifier: ^0.2.4
+    version: 0.2.4
   '@julr/unocss-preset-heropatterns':
     specifier: ^1.0.2
     version: 1.0.2(unocss@0.63.4)
@@ -34,9 +37,6 @@ dependencies:
   '@strootje/biomejs':
     specifier: npm:@jsr/strootje__biomejs@^1.0.4
     version: /@jsr/strootje__biomejs@1.0.4
-  '@strootje/solid-plausible':
-    specifier: npm:@jsr/strootje__solid-plausible@^0.2.4
-    version: /@jsr/strootje__solid-plausible@0.2.4
   '@unocss/reset':
     specifier: ^0.63.4
     version: 0.63.4
