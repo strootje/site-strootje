@@ -3,6 +3,7 @@ export const PageRoutes = {
     github: "https://github.com/strootje",
     instagram: "https://instagram.com/basstroosnijder",
     tiktok: "https://tiktok.com/@strooware",
+    twitter: "https://x.com/strootje",
     linkedin: "https://linkedin.com/in/bas-stroosnijder",
     whatsapp: "https://wa.me/message/SSH2WYDRVXKZL1",
   },

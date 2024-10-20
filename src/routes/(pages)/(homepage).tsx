@@ -1,3 +1,4 @@
+import { For } from "solid-js";
 import JodiestainsSrc from "~/assets/images/jodiestains.png?format=webp&w=100&imagetools";
 import MagicnonsenseSrc from "~/assets/images/magicnonsense.png?format=webp&w=100&imagetools";
 import { Avatar } from "~/components/Avatar";
@@ -6,6 +7,10 @@ import { SocialMenu } from "~/components/SocialMenu";
 export default function HomePage() {
   return (
     <>
+      {/* <header>
+        <h1>Bastiaan Stroosnijder</h1>
+      </header> */}
+
       <Avatar />
       <SocialMenu />
 
@@ -18,16 +23,13 @@ export default function HomePage() {
           <img class="absolute top-0 right-0 bottom-0 left-0" src={MagicnonsenseSrc} alt="Screenshot of Magic-Nonsense.com" />
         </article>
 
-        <article class="relative aspect-ratio-square w-full overflow-hidden rounded border-2 border-amber border-solid bg-red p-2">
-          <div class="absolute top-0 right-0 bottom-0 left-0 bg-hero-wiggle-slate-700" />
-        </article>
-        <article class="relative aspect-ratio-square w-full overflow-hidden rounded border-2 border-amber border-solid bg-red p-2">
-          <div class="absolute top-0 right-0 bottom-0 left-0 bg-hero-wiggle-slate-700" />
-        </article>
-
-        <article class="relative aspect-ratio-square w-full overflow-hidden rounded border-2 border-amber border-solid bg-red p-2">
-          <div class="absolute top-0 right-0 bottom-0 left-0 bg-hero-wiggle-slate-700" />
-        </article>
+        <For each={Array(0)}>
+          {() => (
+            <article class="relative aspect-ratio-square w-full overflow-hidden rounded border-2 border-amber border-solid bg-red p-2">
+              <div class="absolute top-0 right-0 bottom-0 left-0 bg-hero-wiggle-slate-700" />
+            </article>
+          )}
+        </For>
 
         <article class="relative aspect-ratio-square w-full overflow-hidden rounded border-2 border-amber border-solid bg-green p-2">
           <div class="absolute top-0 right-0 bottom-0 left-0 bg-hero-wiggle-slate-700" />
