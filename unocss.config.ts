@@ -1,10 +1,18 @@
 import { presetHeroPatterns } from "@julr/unocss-preset-heropatterns";
-import { defineConfig, presetIcons, presetUno } from "unocss";
+import { defineConfig, presetIcons, presetUno, presetWebFonts } from "unocss";
 
 export default defineConfig({
   presets: [
     presetUno(),
     presetHeroPatterns(),
+
+    presetWebFonts({
+      provider: "bunny",
+      fonts: {
+        other: "Montserrat",
+        title: "Fascinate Inline",
+      },
+    }),
 
     presetIcons({
       extraProperties: {

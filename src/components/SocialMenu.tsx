@@ -8,7 +8,7 @@ export const SocialMenu = () => {
 
   return (
     <nav>
-      <ul class="flex gap-2">
+      <ul class="m-0 flex list-none gap-2 p-0">
         <li>
           <A href={PageRoutes.socials.github} title={t("site.menus.socials.items.github.title")} target="_blank">
             <GithubIcon class="rounded text-2xl" />

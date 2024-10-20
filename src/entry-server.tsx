@@ -11,7 +11,7 @@ export default createHandler(() => (
           <link rel="icon" href="/favicon.ico" />
           {assets}
         </head>
-        <body class="flex h-full flex-col items-center gap-8 bg-hero-wiggle-amber-100">
+        <body class="flex min-h-dvh flex-col items-center gap-8 bg-hero-wiggle-amber-100 font-other">
           {children}
           {scripts}
         </body>
