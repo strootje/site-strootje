@@ -1,5 +1,5 @@
 FROM docker.io/node:20-slim AS builder
-RUN npm i -g pnpm
+RUN npm i -g pnpm@9
 
 WORKDIR /app
 
