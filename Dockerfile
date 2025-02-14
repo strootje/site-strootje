@@ -29,7 +29,7 @@ COPY --from=builder /app/package.json .
 RUN <<EOF
 addgroup -gid 101 noroot
 adduser --gid 101 --uid 101 --shell /sbin/nologin noroot
-chown -R 101:101 /app
+chown -R 101:101 /var/lib/app
 EOF
 USER 101:101
 
