@@ -2,18 +2,16 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: website-strootje
+  name: site-strootje
 
 spec:
-  replicas: 1
-  revisionHistoryLimit: 1
-
   template:
     spec:
       containers:
-        - name: website-strootje
+        - name: site-strootje
           image: ghcr.io/strootje/site-strootje:main
           ports: [{ name: http, containerPort: 3000, protocol: TCP }]
           imagePullPolicy: Always
-
-      serviceAccountName: website-strootje
+      serviceAccountName: strootje
+  revisionHistoryLimit: 1
+  replicas: 1
