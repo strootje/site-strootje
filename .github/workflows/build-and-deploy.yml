@@ -68,13 +68,13 @@ jobs:
           KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
         with:
           args: -n ${{ env.NAMESPACE }} apply --dry-run="server" -k .deployment/overlays/prd
-      # - uses: actions-hub/kubectl@v1.32.1
-      #   if: github.event_name != 'pull_request'
-      #   name: Deploy (APPLY)
-      #   env:
-      #     NAMESPACE: strootje-public
-      #     KUBE_HOST: ${{ secrets.KUBE_HOST }}
-      #     KUBE_CERTIFICATE: ${{ secrets.KUBE_CERTIFICATE }}
-      #     KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
-      #   with:
-      #     args: -n ${{ env.NAMESPACE }} apply -k .deployment/overlays/prd
+      - uses: actions-hub/kubectl@v1.32.1
+        if: github.event_name != 'pull_request'
+        name: Deploy (APPLY)
+        env:
+          NAMESPACE: strootje-public
+          KUBE_HOST: ${{ secrets.KUBE_HOST }}
+          KUBE_CERTIFICATE: ${{ secrets.KUBE_CERTIFICATE }}
+          KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
+        with:
+          args: -n ${{ env.NAMESPACE }} apply -k .deployment/overlays/prd
