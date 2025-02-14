@@ -26,4 +26,11 @@ COPY --from=builder /app/.vinxi ./.vinxi
 COPY --from=builder /app/.output ./.output
 COPY --from=builder /app/package.json .
 
+RUN <<EOF
+addgroup -g101 notroot
+adduser -Gcnotroot -u101 -D -s/sbin/nologin notroot
+chown -R 101:101 /app
+EOF
+USER 101:101
+
 CMD ["run", "--allow-sys", "--allow-env", "--allow-read", "--allow-net", "./.output/server/index.mjs"]
