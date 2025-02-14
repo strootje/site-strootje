@@ -11,7 +11,7 @@ import { SentryRouter } from "./providers/SentryProvider";
 export default function App() {
   return (
     <I18nProvider locale="en">
-      <PlausibleProvider apiHost="https://stats.strooweb.nl">
+      <PlausibleProvider apiHost="https://stats.strooware.nl">
         <SentryRouter root={RootWrapper}>
           <FileRoutes />
         </SentryRouter>

@@ -9,7 +9,7 @@ export const PageRoutes = {
   },
 
   footer: {
-    analytics: "https://stats.strooweb.nl/strootje.com",
+    analytics: "https://stats.strooware.nl/strootje.com",
     source: "https://github.com/strootje/site-strootje",
   },
 } as const;
