@@ -8,7 +8,6 @@
     "start": "vinxi start"
   },
   "dependencies": {
-    "@biomejs/biome": "^1.9.4",
     "@iconify-json/fa6-brands": "^1.2.1",
     "@iconify-json/fa6-solid": "^1.2.1",
     "@iconify-json/simple-icons": "^1.2.8",
@@ -18,7 +17,6 @@
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.14.10",
     "@solidjs/start": "^1.0.9",
-    "@strootje/biomejs": "npm:@jsr/strootje__biomejs@^1.0.4",
     "@jsr/strootje__solid-plausible": "^0.2.4",
     "@unocss/reset": "^0.63.4",
     "solid-js": "^1.9.2",
