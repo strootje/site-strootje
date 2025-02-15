@@ -10,71 +10,10 @@ concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  IMAGE_NAME: strootje/site-strootje
-  REGISTRY: ghcr.io
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    outputs:
-      tags: ${{ steps.meta.outputs.tags }}
-
-    permissions:
-      contents: read
-      packages: write
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: docker/setup-buildx-action@v3.9.0
-      - uses: docker/login-action@v3.3.0
-        if: github.event_name != 'pull_request'
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: docker/metadata-action@v5.6.1
-        with:
-          images: "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
-          tags: type=sha,prefix=
-        id: meta
-      - uses: docker/build-push-action@v6.13.0
-        id: build-and-push
-        with:
-          push: ${{ github.event_name != 'pull_request' }}
-          labels: ${{ steps.meta.outputs.labels }}
-          tags: ${{ steps.meta.outputs.tags }}
-          cache-to: type=gha,mode=max
-          cache-from: type=gha
-          context: .
-
-  deploy:
-    needs: [build]
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: imranismail/setup-kustomize@v2
-      - run: kustomize edit set image ghcr.io/strootje/site-strootje=${{ needs.build.outputs.tags }}
-        name: Kustomize image tag=${{ needs.build.outputs.tags }}
-        working-directory: .deployment/base
-      - uses: actions-hub/kubectl@v1.32.1
-        name: Deploy (DRY-RUN)
-        env:
-          NAMESPACE: strootje-public
-          KUBE_HOST: ${{ secrets.KUBE_HOST }}
-          KUBE_CERTIFICATE: ${{ secrets.KUBE_CERTIFICATE }}
-          KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
-        with:
-          args: -n ${{ env.NAMESPACE }} apply --dry-run="server" -k .deployment/overlays/prd
-      - uses: actions-hub/kubectl@v1.32.1
-        if: github.event_name != 'pull_request'
-        name: Deploy (APPLY)
-        env:
-          NAMESPACE: strootje-public
-          KUBE_HOST: ${{ secrets.KUBE_HOST }}
-          KUBE_CERTIFICATE: ${{ secrets.KUBE_CERTIFICATE }}
-          KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
-        with:
-          args: -n ${{ env.NAMESPACE }} apply -k .deployment/overlays/prd
+  build-and-deploy:
+    uses: strootje/strooweb-workflows/workflows/build-and-deploy.yml@main
+    with:
+      IMAGE_NAME: strootje/site-strootje
+      KUBE_NAMESPACE: strootje-public
+    secrets: inherit
