@@ -12,7 +12,8 @@ concurrency:
 
 jobs:
   build-and-deploy:
-    uses: strootje/strooweb-workflows/workflows/build-and-deploy.yml@main
+    name: Build and Deploy
+    uses: strootje/strooweb-workflows/.github/workflows/build-and-deploy.yml@main
     with:
       IMAGE_NAME: strootje/site-strootje
       KUBE_NAMESPACE: strootje-public
