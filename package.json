@@ -8,20 +8,20 @@
     "start": "vinxi start"
   },
   "dependencies": {
-    "@iconify-json/fa6-brands": "^1.2.1",
-    "@iconify-json/fa6-solid": "^1.2.1",
-    "@iconify-json/simple-icons": "^1.2.8",
-    "@julr/unocss-preset-heropatterns": "^1.0.2",
-    "@sentry/solidstart": "^8.34.0",
-    "@solid-primitives/i18n": "^2.1.1",
-    "@solidjs/meta": "^0.29.4",
-    "@solidjs/router": "^0.14.10",
-    "@solidjs/start": "^1.0.9",
+    "@iconify-json/fa6-brands": "^1.2.5",
+    "@iconify-json/fa6-solid": "^1.2.3",
+    "@iconify-json/simple-icons": "^1.2.24",
     "@jsr/strootje__solid-plausible": "^0.2.4",
-    "@unocss/reset": "^0.63.4",
-    "solid-js": "^1.9.2",
-    "unocss": "^0.63.4",
-    "vinxi": "^0.4.3",
-    "vite-imagetools": "^7.0.4"
+    "@julr/unocss-preset-heropatterns": "^2.0.0",
+    "@sentry/solidstart": "^9.1.0",
+    "@solid-primitives/i18n": "^2.2.0",
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^0.15.3",
+    "@solidjs/start": "^1.1.1",
+    "@unocss/reset": "^65.5.0",
+    "solid-js": "^1.9.4",
+    "unocss": "^65.5.0",
+    "vinxi": "^0.5.3",
+    "vite-imagetools": "^7.0.5"
   }
 }
