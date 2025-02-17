@@ -15,7 +15,7 @@ ENV NITRO_PRESET=deno-server
 RUN pnpm build
 
 # ----------------------------------------
-FROM docker.io/denoland/deno:1.45.5
+FROM docker.io/denoland/deno:1.46.3
 
 EXPOSE 3000
 WORKDIR /var/lib/app
