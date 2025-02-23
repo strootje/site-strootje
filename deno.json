@@ -1,0 +1,16 @@
+{
+  "tasks": {
+    "dev": "vinxi dev",
+    "build": "vinxi build"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "solid-js",
+    "types": ["vinxi/types/client", "vite-imagetools"],
+    "lib": ["dom", "deno.ns"]
+  },
+  "nodeModulesDir": "auto",
+  "imports": {
+    "~/": "./src/"
+  }
+}
