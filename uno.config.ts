@@ -21,13 +21,17 @@ export default defineConfig({
       },
       collections: {
         simple: () =>
-          import("@iconify-json/simple-icons/icons.json").then((i) =>
-            i.default
-          ),
+          import("@iconify-json/simple-icons/icons.json", {
+            with: { type: "json" },
+          }).then((i) => i.default),
         solid: () =>
-          import("@iconify-json/fa6-solid/icons.json").then((i) => i.default),
+          import("@iconify-json/fa6-solid/icons.json", {
+            with: { type: "json" },
+          }).then((i) => i.default),
         brands: () =>
-          import("@iconify-json/fa6-brands/icons.json").then((i) => i.default),
+          import("@iconify-json/fa6-brands/icons.json", {
+            with: { type: "json" },
+          }).then((i) => i.default),
       },
     }),
   ],
