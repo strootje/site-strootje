@@ -3,18 +3,18 @@ import "virtual:uno.css";
 
 import { PlausibleProvider } from "@jsr/strootje__solid-plausible";
 import { MetaProvider, Title } from "@solidjs/meta";
+import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
 import { type ParentProps, Suspense } from "solid-js";
-import { I18nProvider } from "./providers/LocaleProvider";
-import { SentryRouter } from "./providers/SentryProvider";
+import { I18nProvider } from "./providers/LocaleProvider.tsx";
 
 export default function App() {
   return (
     <I18nProvider locale="en">
       <PlausibleProvider apiHost="https://stats.strooware.nl">
-        <SentryRouter root={RootWrapper}>
+        <Router root={RootWrapper}>
           <FileRoutes />
-        </SentryRouter>
+        </Router>
       </PlausibleProvider>
     </I18nProvider>
   );

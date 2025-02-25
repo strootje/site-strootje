@@ -1,5 +1,5 @@
 // @refresh reload
-import { StartServer, createHandler } from "@solidjs/start/server";
+import { createHandler, StartServer } from "@solidjs/start/server";
 
 export default createHandler(() => (
   <StartServer
@@ -11,7 +11,7 @@ export default createHandler(() => (
           <link rel="icon" href="/favicon.ico" />
           {assets}
         </head>
-        <body class="flex min-h-dvh flex-col items-center gap-8 bg-hero-wiggle-amber-100 font-other">
+        <body class="flex flex-col items-center gap-8 bg-hero-wiggle-amber-100 min-h-dvh font-other">
           {children}
           {scripts}
         </body>

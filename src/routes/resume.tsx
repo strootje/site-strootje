@@ -1,5 +1,5 @@
 import { A } from "@solidjs/router";
-import { For, createSignal } from "solid-js";
+import { createSignal, For } from "solid-js";
 
 type Resume = {
   experiences: Array<{
@@ -87,9 +87,9 @@ const [resume] = createSignal<Resume>({
 
 export default function ResumePage() {
   return (
-    <div class="flex h-dvh items-center justify-center bg-hero-hideout-yellow-50 dark:bg-hero-hideout-yellow-800 dark:bg-slate-800">
-      <main class="relative h-[95dvh] overflow-scroll p-6">
-        <header class="position-sticky top-2 right-0 left-0 m-2 h-20 rounded bg-green p-4 shadow">
+    <div class="flex justify-center items-center bg-hero-hideout-yellow-50 dark:bg-hero-hideout-yellow-800 dark:bg-slate-800 h-dvh">
+      <main class="relative p-6 h-[95dvh] overflow-scroll">
+        <header class="top-2 right-0 left-0 position-sticky bg-green shadow m-2 p-4 rounded h-20">
           <nav>
             <ul>
               <li>
@@ -99,8 +99,8 @@ export default function ResumePage() {
           </nav>
         </header>
 
-        <section class="flex w-[21cm] flex-col gap-4 rounded-sm bg-white p-4 shadow">
-          <section class="mt-4 flex flex-row justify-between">
+        <section class="flex flex-col gap-4 bg-white shadow p-4 rounded-sm w-[21cm]">
+          <section class="flex flex-row justify-between mt-4">
             <header>
               <h1 class="text-3xl">
                 <div>Bastiaan Stroosnijder</div>
@@ -119,7 +119,11 @@ export default function ResumePage() {
                 <a href="tel:+31612203229" target="_blank" rel="noreferrer">
                   +31 6 122 03 229
                 </a>
-                <a href="mailto:bas@strootje.com" target="_blank" rel="noreferrer">
+                <a
+                  href="mailto:bas@strootje.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   bas@strootje.com
                 </a>
                 <div>Rotterdam, The Netherlands</div>
@@ -149,7 +153,8 @@ export default function ResumePage() {
                             <header>
                               <h4>{role.title}</h4>
                               <span>
-                                {role.startDate.getFullYear()}/{role.startDate.getMonth()}
+                                {role.startDate.getFullYear()}/{role.startDate
+                                  .getMonth()}
                               </span>
                             </header>
                           </article>

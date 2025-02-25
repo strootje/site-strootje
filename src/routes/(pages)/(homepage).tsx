@@ -1,7 +1,6 @@
-import {} from "~/components/ArticleItems";
-import { ArticleMenu } from "~/components/ArticleMenu";
-import { Header } from "~/components/Header";
-import { SocialMenu } from "~/components/SocialMenu";
+import { ArticleMenu } from "~/components/ArticleMenu.tsx";
+import { Header } from "~/components/Header.tsx";
+import { SocialMenu } from "~/components/SocialMenu.tsx";
 
 export default function HomePage() {
   return (
