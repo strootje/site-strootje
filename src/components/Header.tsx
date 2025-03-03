@@ -1,9 +1,9 @@
-import { Avatar } from "./Avatar";
+import { Avatar } from "~/components/Avatar.tsx";
 
 export const Header = () => {
   return (
-    <header class="grid grid-rows-5 justify-center font-title text-2xl">
-      <div class="col-span-full row-span-3 row-start-1 flex flex-col items-center bg-amber text-slate-800">
+    <header class="justify-center grid grid-rows-5 font-title text-2xl">
+      <div class="flex flex-col items-center col-span-full row-span-3 row-start-1 bg-amber text-slate-800">
         <span>Bastiaan</span>
         <span>Stroosnijder</span>
       </div>

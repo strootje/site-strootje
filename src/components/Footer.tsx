@@ -1,7 +1,7 @@
 import { A } from "@solidjs/router";
 import type { ComponentProps } from "solid-js";
-import { PageRoutes } from "~/consts";
-import { useTranslator } from "~/providers/LocaleProvider";
+import { PageRoutes } from "~/consts.ts";
+import { useTranslator } from "~/providers/LocaleProvider.tsx";
 
 export const Footer = (props: ComponentProps<"footer">) => {
   const t = useTranslator();
@@ -12,7 +12,7 @@ export const Footer = (props: ComponentProps<"footer">) => {
         <ul class="flex gap-2 py-2">
           <li>
             <A
-              class="flex items-center gap-1 rounded bg-slate-100 px-2 py-1"
+              class="flex items-center gap-1 bg-slate-100 px-2 py-1 rounded"
               title={t("site.menus.footer.items.analytics.title")}
               href={PageRoutes.footer.analytics}
               target="_blank"
@@ -24,7 +24,7 @@ export const Footer = (props: ComponentProps<"footer">) => {
 
           <li>
             <A
-              class="flex items-center gap-1 rounded bg-slate-100 px-2 py-1"
+              class="flex items-center gap-1 bg-slate-100 px-2 py-1 rounded"
               title={t("site.menus.footer.items.source.title")}
               href={PageRoutes.footer.source}
               target="_blank"
