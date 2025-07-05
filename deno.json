@@ -3,6 +3,9 @@
     "dev": "vinxi dev",
     "build": "vinxi build"
   },
+  "fmt": {
+    "lineWidth": 160
+  },
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "solid-js",
@@ -10,7 +13,11 @@
     "lib": ["dom", "deno.ns"]
   },
   "nodeModulesDir": "auto",
+  "workspace": ["./packages/*"],
   "imports": {
+    "@std/encoding": "jsr:@std/encoding@^1.0.10",
+    "@std/path": "jsr:@std/path@^1.1.1",
+    "@strootje/solid-plausible": "jsr:@strootje/solid-plausible@^0.2.12",
     "~/": "./src/"
   }
 }

@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<gpx version="1.1" creator="https://www.komoot.de" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>MTB ride</name>
+    <author>
+      <link href="https://www.komoot.de">
+        <text>komoot</text>
+        <type>text/html</type>
+      </link>
+    </author>
+  </metadata>
+  <trk>
+    <name>MTB ride</name>
+    <trkseg>
+      <trkpt lat="52.005191" lon="5.461563">
+        <ele>26.633333</ele>
+        <time>2025-04-17T18:09:56.000Z</time>
+      </trkpt>
+      <trkpt lat="52.005169" lon="5.461559">
+        <ele>26.633333</ele>
+        <time>2025-04-17T18:09:57.000Z</time>
+      </trkpt>
+      <trkpt lat="52.005128" lon="5.461576">
+        <ele>26.633333</ele>
+        <time>2025-04-17T18:09:59.000Z</time>
+      </trkpt>
+      <trkpt lat="52.005125" lon="5.461668">
+        <ele>26.633333</ele>
+        <time>2025-04-17T18:10:05.000Z</time>
+      </trkpt>
+      <trkpt lat="52.005129" lon="5.461665">
+        <ele>26.633333</ele>
+        <time>2025-04-17T18:10:06.000Z</time>
+      </trkpt>
+      <trkpt lat="52.005117" lon="5.461660">
+        <ele>26.633333</ele>
+        <time>2025-04-17T18:10:07.000Z</time>
+      </trkpt>
+      <trkpt lat="52.005102" lon="5.461644">
+        <ele>26.633333</ele>
+        <time>2025-04-17T18:10:13.000Z</time>
+      </trkpt>
+      <trkpt lat="52.005100" lon="5.461645">
+        <ele>26.633333</ele>
+        <time>2025-04-17T18:10:15.000Z</time>
+      </trkpt>
+      <trkpt lat="52.005102" lon="5.461643">
+        <ele>26.633333</ele>
+        <time>2025-04-17T18:10:19.000Z</time>
+      </trkpt>
+      <trkpt lat="52.005105" lon="5.461649">
+        <ele>26.633333</ele>
+        <time>2025-04-17T18:10:32.000Z</time>
+      </trkpt>
+      <trkpt lat="52.005091" lon="5.461657">
+        <ele>26.633333</ele>
+        <time>2025-04-17T18:10:38.000Z</time>
+      </trkpt>
+      <trkpt lat="52.005085" lon="5.461671">
+        <ele>26.633333</ele>
+        <time>2025-04-17T18:10:40.000Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

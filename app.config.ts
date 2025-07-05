@@ -1,11 +1,14 @@
+import { default as deno } from "@deno/vite-plugin";
 import { defineConfig } from "@solidjs/start/config";
 import { default as unocss } from "unocss/vite";
-import { imagetools } from "vite-imagetools";
 
 export default defineConfig({
-  ssr: true,
+  ssr: false,
 
   vite: {
-    plugins: [unocss(), imagetools()],
+    plugins: [
+      deno(),
+      unocss(),
+    ],
   },
 });

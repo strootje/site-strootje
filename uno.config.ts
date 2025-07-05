@@ -1,10 +1,8 @@
-import { presetHeroPatterns } from "@julr/unocss-preset-heropatterns";
 import { defineConfig, presetIcons, presetWebFonts, presetWind3 } from "unocss";
 
 export default defineConfig({
   presets: [
     presetWind3(),
-    presetHeroPatterns(),
 
     presetWebFonts({
       provider: "bunny",
