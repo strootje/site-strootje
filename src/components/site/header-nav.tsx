@@ -2,12 +2,12 @@ import { createSignal } from "solid-js";
 import { ToggleButton } from "~/components/shared/toggle-button.tsx";
 
 export const SiteHeaderNav = () => {
-  const [open, setOpen] = createSignal(true);
+  const [open, setOpen] = createSignal(false);
 
   return (
     <nav
       classList={{ "open": open() }}
-      class="group max-sm:[&.open]:fixed sticky inset-0 mx-auto p-2 max-sm:[&.open]:p-0 max-w-[960px]"
+      class="group max-sm:[&.open]:fixed sticky inset-0 mx-auto p-2 max-sm:[&.open]:p-0 max-w-[1280px]"
     >
       <div class="flex max-sm:group-[.open]:flex-col gap-2 bg-stone-300/90 shadow backdrop-blur p-4 rounded h-full text-xl">
         <ul class="flex max-sm:group-[.open]:flex-col gap-8 grow">

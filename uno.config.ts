@@ -1,8 +1,10 @@
 import { defineConfig, presetIcons, presetWebFonts, presetWind3 } from "unocss";
+import { presetScrollbar } from "unocss-preset-scrollbar";
 
 export default defineConfig({
   presets: [
     presetWind3(),
+    presetScrollbar(),
 
     presetWebFonts({
       provider: "bunny",

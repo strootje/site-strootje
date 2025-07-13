@@ -7,19 +7,19 @@ export default function PagesLayout() {
       <SiteHeaderNav />
       <SiteHero />
 
-      <section class="flex flex-row sm:justify-between gap-2 sm:mx-auto p-2 sm:*:min-w-unset *:min-w-full sm:max-w-[960px] overflow-x-scroll *:scroll-mx-2 snap-mandatory snap-x *:snap-start sm:*:grow">
+      <section class="flex flex-row sm:justify-between gap-2 sm:mx-auto p-2 sm:*:min-w-unset *:min-w-full sm:max-w-[1280px] overflow-x-scroll *:scroll-mx-2 snap-mandatory snap-x *:snap-start sm:*:grow scrollbar scrollbar-none">
         <article class="bg-white shadow p-2 rounded h-40">article 1</article>
         <article class="bg-white shadow p-2 rounded h-40">article 2</article>
         <article class="bg-white shadow p-2 rounded h-40">article 3</article>
       </section>
 
       <div class="bg-white">
-        <section class="mx-auto p-2 max-w-[960px] flex-">
+        <section class="flex mx-auto p-2 max-w-[1280px]">
           newsletter..
         </section>
       </div>
 
-      <section class="mx-auto p-2 max-w-[960px]">
+      <section class="mx-auto p-2 max-w-[1280px]">
         <div class="flex flex-col gap-2">
           <div class="bg-white shadow rounded h-80" />
           <div class="bg-white shadow rounded h-80" />

@@ -1,9 +1,9 @@
-import { default as deno } from "@deno/vite-plugin";
+import deno from "@deno/vite-plugin";
 import { defineConfig } from "@solidjs/start/config";
-import { default as unocss } from "unocss/vite";
+import unocss from "unocss/vite";
 
 export default defineConfig({
-  ssr: false,
+  ssr: true,
 
   vite: {
     plugins: [

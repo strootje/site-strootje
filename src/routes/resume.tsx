@@ -104,7 +104,7 @@ export default function ResumePage() {
             <header>
               <h1 class="text-3xl">
                 <div>Bastiaan Stroosnijder</div>
-                <div class="text-xl">Fullstack Technical Lead</div>
+                <div class="text-xl">Tech Lead (Fullstack)</div>
               </h1>
             </header>
 
@@ -126,7 +126,7 @@ export default function ResumePage() {
                 >
                   bas@strootje.com
                 </a>
-                <div>Rotterdam, The Netherlands</div>
+                <div>Amerongen, The Netherlands</div>
               </div>
             </div>
           </section>
