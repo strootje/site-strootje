@@ -9,11 +9,15 @@ const section = tw`col-[content]`;
 const sectionHeader = tw`text-sm text-stone-600`;
 const sectionNav = tw`b-1 b-stone-500 grid rounded bg-gray-50 shadow-stone-500 shadow-[2px_2px_0_2px]`;
 const sectionNavUl = tw`divide-y divide-stone-800`;
+const sectionNavLi = tw`hover:bg-stone-200`;
 const sectionHref = tw`flex items-center gap-4 p-4`;
 
 const imgFavicon = tw`aspect-square h-full`;
 const iconWrapper = tw`corner-squircle aspect-square h-[40px] rounded-full p-2`;
 const subText = tw`-mt-1 text-stone-500 text-xs`;
+
+const footerNavLi = tw`b-1 b-transparent corner-squircle hover:b-rose-300 rounded-full hover:bg-rose-200/60`;
+const footerHref = tw`flex gap-1 px-3 py-2`;
 
 export const Route = createFileRoute("/links")({
   component: () => {
@@ -39,7 +43,7 @@ export const Route = createFileRoute("/links")({
 
           <nav class={sectionNav}>
             <ul class={sectionNavUl}>
-              <li>
+              <li class={sectionNavLi}>
                 <Link class={sectionHref} to="/">
                   <div class={cx(iconWrapper, "bg-rose-800/20 text-rose-800")}>
                     <img class={imgFavicon} src="https://strootje.com/favicon.ico" />
@@ -54,7 +58,7 @@ export const Route = createFileRoute("/links")({
                 </Link>
               </li>
 
-              <li>
+              <li class={sectionNavLi}>
                 <Link class={sectionHref} to="/">
                   <div class={cx(iconWrapper, "bg-rose-800/20 text-rose-800")}>
                     <Icon class="i-solar:document-outline text-2xl" />
@@ -81,7 +85,7 @@ export const Route = createFileRoute("/links")({
 
           <nav class={sectionNav}>
             <ul class={sectionNavUl}>
-              <li>
+              <li class={sectionNavLi}>
                 <a class={sectionHref} href="https://www.linkedin.com/in/bas-stroosnijder" target="_blank">
                   <div class={cx(iconWrapper, "bg-[#0A66C2]/20 text-[#0A66C2]")}>
                     <Icon class="i-brand:linkedin-in text-2xl" />
@@ -96,7 +100,7 @@ export const Route = createFileRoute("/links")({
                 </a>
               </li>
 
-              <li>
+              <li class={sectionNavLi}>
                 <a class={sectionHref} href="https://bsky.app/profile/basstroosnijder.bsky.social" target="_blank">
                   <div class={cx(iconWrapper, "bg-[#0085FF]/20 text-[#0085FF]")}>
                     <Icon class="i-brand:bluesky text-2xl" />
@@ -111,7 +115,7 @@ export const Route = createFileRoute("/links")({
                 </a>
               </li>
 
-              <li>
+              <li class={sectionNavLi}>
                 <a class={sectionHref} href="https://www.instagram.com/basstroosnijder" target="_blank">
                   <div class={cx(iconWrapper, "bg-[#E1306C]/20 text-[#E1306C]")}>
                     <Icon class="i-brand:instagram text-2xl" />
@@ -136,7 +140,7 @@ export const Route = createFileRoute("/links")({
 
           <nav class={sectionNav}>
             <ul class={sectionNavUl}>
-              <li>
+              <li class={sectionNavLi}>
                 <a class={sectionHref} href="https://strooware.nl" target="_blank">
                   <div class={cx(iconWrapper, "bg-[#25D366]/20 text-[#25D366]")}>
                     <img class={imgFavicon} src="https://strooware.nl/favicon.svg" />
@@ -151,7 +155,7 @@ export const Route = createFileRoute("/links")({
                 </a>
               </li>
 
-              <li>
+              <li class={sectionNavLi}>
                 <a class={sectionHref} href="https://wa.me/31641417771" target="_blank">
                   <div class={cx(iconWrapper, "bg-[#25D366]/20 text-[#25D366]")}>
                     <Icon class="i-brand:whatsapp text-2xl" />
@@ -172,15 +176,15 @@ export const Route = createFileRoute("/links")({
         <footer class={section}>
           <nav>
             <ul class="flex justify-center gap-3 text-xs">
-              <li>
-                <a class="flex gap-1 px-3 py-2" href="https://github.com/strootje/site-strootje" target="_blank">
+              <li class={footerNavLi}>
+                <a class={footerHref} href="https://github.com/strootje/site-strootje" target="_blank">
                   <Icon class="i-solar:code-square-outline" />
                   <span>Source</span>
                 </a>
               </li>
 
-              <li>
-                <a class="flex gap-1 px-3 py-2" href="https://stats.strooware.nl/strootje.com" target="_blank">
+              <li class={footerNavLi}>
+                <a class={footerHref} href="https://stats.strooware.nl/strootje.com" target="_blank">
                   <Icon class="i-solar:graph-up-outline" />
                   <span>Analytics</span>
                 </a>
