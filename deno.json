@@ -1,16 +1,45 @@
 {
   "tasks": {
-    "dev": "vinxi dev",
-    "build": "vinxi build"
+    "dev": "vite dev",
+    "build": "vite build"
   },
+
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "solid-js",
-    "types": ["vinxi/types/client", "vite-imagetools"],
-    "lib": ["dom", "deno.ns"]
+
+    "lib": [
+      "deno.ns",
+      "dom"
+    ],
+
+    "types": [
+      "vite/client"
+    ]
   },
-  "nodeModulesDir": "auto",
+
+  "workspace": [
+    "pkgs/**"
+  ],
+
   "imports": {
-    "~/": "./src/"
-  }
+    "#/": "./src/"
+  },
+
+  "fmt": {
+    "lineWidth": 120
+  },
+
+  "lint": {
+    "plugins": [
+      "jsr:@ryu/deno-lint-plugin-tailwindcss@0.2.0"
+    ]
+  },
+
+  "test": {
+    "include": [
+      "**/*.test.ts"
+    ]
+  },
+  "allowScripts": ["npm:@parcel/watcher@2.5.6", "npm:esbuild@0.27.3"]
 }

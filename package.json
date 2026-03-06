@@ -1,20 +1,21 @@
 {
-  "type": "module",
-  "dependencies": {
-    "@iconify-json/fa6-brands": "^1.2.5",
-    "@iconify-json/fa6-solid": "^1.2.3",
-    "@iconify-json/simple-icons": "^1.2.25",
-    "@jsr/strootje__solid-plausible": "^0.2.4",
-    "@julr/unocss-preset-heropatterns": "^2.0.0",
-    "@sentry/solidstart": "^9.1.0",
-    "@solid-primitives/i18n": "^2.2.0",
-    "@solidjs/meta": "^0.29.4",
-    "@solidjs/router": "^0.15.3",
-    "@solidjs/start": "^1.1.1",
-    "@unocss/reset": "^66.0.0",
-    "solid-js": "^1.9.4",
-    "unocss": "^66.0.0",
-    "vinxi": "^0.5.3",
-    "vite-imagetools": "^9.0.2"
-  }
+   "type": "module",
+   "dependencies": {
+      "@ark-ui/solid": "^5.34.1",
+      "@deno/vite-plugin": "^1.0.6",
+      "@dicebear/collection": "^9.4.0",
+      "@dicebear/core": "^9.4.0",
+      "@iconify-json/fa7-brands": "^1.2.2",
+      "@iconify-json/solar": "^1.2.5",
+      "@julr/unocss-preset-heropatterns": "^2.0.0",
+      "@plausible-analytics/tracker": "^0.4.4",
+      "@tanstack/nitro-v2-vite-plugin": "^1.154.7",
+      "@tanstack/solid-router": "^1.166.2",
+      "@tanstack/solid-start": "^1.166.2",
+      "class-variance-authority": "^0.7.1",
+      "solid-js": "^1.9.11",
+      "unocss": "^66.6.5",
+      "vite": "^7.3.1",
+      "vite-plugin-solid": "^2.11.10"
+   }
 }

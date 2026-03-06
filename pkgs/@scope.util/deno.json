@@ -1,0 +1,6 @@
+{
+  "name": "@scope/util",
+  "exports": {
+    "./uno": "./mod.uno.ts"
+  }
+}
