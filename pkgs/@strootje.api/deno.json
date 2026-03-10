@@ -1,0 +1,7 @@
+{
+  "name": "@strootje/api",
+  "exports": {
+    "./listmonk": "./mod.listmonk.ts",
+    "./plausible": "./mod.plausible.ts"
+  }
+}

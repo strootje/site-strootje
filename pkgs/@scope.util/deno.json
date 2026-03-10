@@ -1,6 +1,7 @@
 {
   "name": "@scope/util",
   "exports": {
+    "./blog": "./mod.blog.ts",
     "./uno": "./mod.uno.ts"
   }
 }

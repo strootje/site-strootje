@@ -1,8 +1,11 @@
 import { Avatar } from "#/components/avatar.tsx";
 import { Icon } from "#/components/icon.tsx";
+import * as contentFns from "#/functions/content.functions.ts";
 import { tw } from "@scope/util/uno";
 import { createFileRoute, Link } from "@tanstack/solid-router";
 import { cx } from "class-variance-authority";
+// @ts-types="solid-js"
+import { Show } from "solid-js";
 
 const section = tw`col-[content]`;
 
@@ -20,7 +23,13 @@ const footerNavLi = tw`b-1 b-transparent corner-squircle hover:b-rose-300 rounde
 const footerHref = tw`flex gap-1 px-3 py-2`;
 
 export const Route = createFileRoute("/links")({
+  loader: async () => ({
+    recentArticle: (await contentFns.getRecent()).at(-1),
+  }),
+
   component: () => {
+    const data = Route.useLoaderData();
+
     return (
       <main class="grid-layout grid min-h-dvh content-start gap-8 bg-hero-yyy-black/5 bg-mauve-200 p-y-4 font-mono text-stone-800">
         <header class={cx(section, "grid justify-items-center")}>
@@ -58,22 +67,28 @@ export const Route = createFileRoute("/links")({
                 </Link>
               </li>
 
-              <li class={sectionNavLi}>
-                <Link class={sectionHref} to="/">
-                  <div class={cx(iconWrapper, "bg-rose-800/20 text-rose-800")}>
-                    <Icon class="i-solar:document-outline text-2xl" />
-                  </div>
+              <Show when={data().recentArticle}>
+                {(latestPost) => (
+                  <li class={sectionNavLi}>
+                    <Link class={sectionHref} to="/blog/$slug" params={{ slug: latestPost().slug }}>
+                      <div class={cx(iconWrapper, "bg-rose-800/20 text-rose-800")}>
+                        <Icon class="i-solar:document-outline text-2xl" />
+                      </div>
 
-                  <div class="grid grow">
-                    <span>How keel help..</span>
-                    <span class={subText}>2026-03-05</span>
-                  </div>
+                      <div class="grid grow">
+                        <span>{latestPost().meta.title}</span>
+                        <span class={subText}>
+                          {(latestPost().modifiedDate ?? latestPost().meta.publishDate).toString()}
+                        </span>
+                      </div>
 
-                  <span class="b-1 b-emerald-400 rounded bg-emerald-200 px-1 text-sm shadow shadow-emerald">
-                    new
-                  </span>
-                </Link>
-              </li>
+                      <span class="b-1 b-emerald-400 rounded bg-emerald-200 px-1 text-sm shadow shadow-emerald">
+                        new
+                      </span>
+                    </Link>
+                  </li>
+                )}
+              </Show>
             </ul>
           </nav>
         </section>

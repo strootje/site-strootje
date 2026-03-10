@@ -1,5 +1,5 @@
 import { presetHeroPatterns } from "@julr/unocss-preset-heropatterns";
-import { defineConfig, presetIcons, presetWebFonts, presetWind4 } from "unocss";
+import { defineConfig, presetIcons, presetTypography, presetWebFonts, presetWind4 } from "unocss";
 
 const iconify = async (name: string) => {
   const { default: iconjson } = await import(name, { with: { type: "json" } });
@@ -19,11 +19,13 @@ export default defineConfig({
     presetWind4({
       dark: "media",
     }),
+    presetTypography(),
     presetHeroPatterns(),
     presetWebFonts({
       provider: "bunny",
       fonts: {
-        mono: ["NChivo Mono:300"],
+        mono: ["Chivo Mono:300"],
+        sans: ["Space Grotesk:400;700"],
       },
     }),
     presetIcons({
