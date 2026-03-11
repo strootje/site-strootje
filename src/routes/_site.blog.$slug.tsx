@@ -1,6 +1,7 @@
 import * as contentFns from "#/functions/content.functions.ts";
 import * as statFns from "#/functions/stat.functions.ts";
 import { createFileRoute } from "@tanstack/solid-router";
+import { Suspense } from "solid-js";
 
 export const Route = createFileRoute("/_site/blog/$slug")({
   loader: async ({ location, params }) => ({
@@ -19,7 +20,9 @@ export const Route = createFileRoute("/_site/blog/$slug")({
         <h1>slug: {params().slug}</h1>
         <p>views: {data().stats.visits}</p>
         <p>readTime: {data().stats.timeOnPage}</p>
-        <Content />
+        <Suspense>
+          <Content />
+        </Suspense>
       </>
     );
   },

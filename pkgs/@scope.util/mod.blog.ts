@@ -3,7 +3,9 @@ import type { Component } from "solid-js";
 export type Frontmatter = {
   title: string;
   publishDate: Date;
-  highlighted?: true;
+  featured?: true;
+  description: string;
+  tag: { color: string; text: string };
 };
 
 export type ArticleExport = {

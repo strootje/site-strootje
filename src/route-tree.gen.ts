@@ -14,6 +14,7 @@ import { Route as SiteRouteImport } from "./routes/_site.tsx"
 import { Route as SiteIndexRouteImport } from "./routes/_site.index.tsx"
 import { Route as AdminNewRouteImport } from "./routes/admin.new.tsx"
 import { Route as SiteBlogIndexRouteImport } from "./routes/_site.blog.index.tsx"
+import { Route as SiteBlogPageChar123pageChar125RouteImport } from "./routes/_site.blog.page-{$page}.tsx"
 import { Route as SiteBlogSlugRouteImport } from "./routes/_site.blog.$slug.tsx"
 
 const LinksRoute = LinksRouteImport.update({
@@ -40,6 +41,12 @@ const SiteBlogIndexRoute = SiteBlogIndexRouteImport.update({
   path: "/blog/",
   getParentRoute: () => SiteRoute,
 } as any)
+const SiteBlogPageChar123pageChar125Route =
+  SiteBlogPageChar123pageChar125RouteImport.update({
+    id: "/blog/page-{$page}",
+    path: "/blog/page-{$page}",
+    getParentRoute: () => SiteRoute,
+  } as any)
 const SiteBlogSlugRoute = SiteBlogSlugRouteImport.update({
   id: "/blog/$slug",
   path: "/blog/$slug",
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
   "/links": typeof LinksRoute
   "/admin/new": typeof AdminNewRoute
   "/blog/$slug": typeof SiteBlogSlugRoute
+  "/blog/page-{$page}": typeof SiteBlogPageChar123pageChar125Route
   "/blog/": typeof SiteBlogIndexRoute
 }
 export interface FileRoutesByTo {
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
   "/admin/new": typeof AdminNewRoute
   "/": typeof SiteIndexRoute
   "/blog/$slug": typeof SiteBlogSlugRoute
+  "/blog/page-{$page}": typeof SiteBlogPageChar123pageChar125Route
   "/blog": typeof SiteBlogIndexRoute
 }
 export interface FileRoutesById {
@@ -67,13 +76,26 @@ export interface FileRoutesById {
   "/admin/new": typeof AdminNewRoute
   "/_site/": typeof SiteIndexRoute
   "/_site/blog/$slug": typeof SiteBlogSlugRoute
+  "/_site/blog/page-{$page}": typeof SiteBlogPageChar123pageChar125Route
   "/_site/blog/": typeof SiteBlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: "/" | "/links" | "/admin/new" | "/blog/$slug" | "/blog/"
+  fullPaths:
+    | "/"
+    | "/links"
+    | "/admin/new"
+    | "/blog/$slug"
+    | "/blog/page-{$page}"
+    | "/blog/"
   fileRoutesByTo: FileRoutesByTo
-  to: "/links" | "/admin/new" | "/" | "/blog/$slug" | "/blog"
+  to:
+    | "/links"
+    | "/admin/new"
+    | "/"
+    | "/blog/$slug"
+    | "/blog/page-{$page}"
+    | "/blog"
   id:
     | "__root__"
     | "/_site"
@@ -81,6 +103,7 @@ export interface FileRouteTypes {
     | "/admin/new"
     | "/_site/"
     | "/_site/blog/$slug"
+    | "/_site/blog/page-{$page}"
     | "/_site/blog/"
   fileRoutesById: FileRoutesById
 }
@@ -127,6 +150,13 @@ declare module "@tanstack/solid-router" {
       preLoaderRoute: typeof SiteBlogIndexRouteImport
       parentRoute: typeof SiteRoute
     }
+    "/_site/blog/page-{$page}": {
+      id: "/_site/blog/page-{$page}"
+      path: "/blog/page-{$page}"
+      fullPath: "/blog/page-{$page}"
+      preLoaderRoute: typeof SiteBlogPageChar123pageChar125RouteImport
+      parentRoute: typeof SiteRoute
+    }
     "/_site/blog/$slug": {
       id: "/_site/blog/$slug"
       path: "/blog/$slug"
@@ -140,12 +170,14 @@ declare module "@tanstack/solid-router" {
 interface SiteRouteChildren {
   SiteIndexRoute: typeof SiteIndexRoute
   SiteBlogSlugRoute: typeof SiteBlogSlugRoute
+  SiteBlogPageChar123pageChar125Route: typeof SiteBlogPageChar123pageChar125Route
   SiteBlogIndexRoute: typeof SiteBlogIndexRoute
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
   SiteIndexRoute: SiteIndexRoute,
   SiteBlogSlugRoute: SiteBlogSlugRoute,
+  SiteBlogPageChar123pageChar125Route: SiteBlogPageChar123pageChar125Route,
   SiteBlogIndexRoute: SiteBlogIndexRoute,
 }
 

@@ -6,6 +6,13 @@ import * as v from "valibot";
 
 type ArticleFiles = Record<string, { Article: ArticleExport }>;
 
+export type PostMeta = {
+  meta: ArticleExport["frontmatter"];
+  slug: string;
+  modifiedDate: Date;
+  filename: string;
+};
+
 const removeExt = (filename: string) => {
   return basename(filename).split(".").slice(0, -1).join(".");
 };
@@ -33,21 +40,32 @@ const getAllContentMiddleware = createMiddleware()
           slug: filename.split(".").at(-1)!,
           modifiedDate: mtime,
           filename,
-        })),
+        } as PostMeta)),
       },
     });
   });
 
-export const getHighlighted = createServerFn()
+export const getAll = createServerFn()
   .middleware([getAllContentMiddleware])
   .handler(({ context }) => {
-    return context.articles.filter(({ meta }) => meta.highlighted);
+    return context.articles;
+    // .filter(({ meta }) => Date.parse(meta.publishDate.toISOString()) <= Date.now());
+  });
+
+export const getFeatured = createServerFn()
+  .middleware([getAllContentMiddleware])
+  .handler(({ context }) => {
+    return context.articles
+      .filter(({ meta }) => Date.parse(meta.publishDate.toISOString()) <= Date.now())
+      .filter(({ meta }) => meta.featured);
   });
 
 export const getRecent = createServerFn()
   .middleware([getAllContentMiddleware])
   .handler(({ context }) => {
-    return context.articles.filter(({ meta }) => !meta.highlighted);
+    return context.articles
+      .filter(({ meta }) => Date.parse(meta.publishDate.toISOString()) <= Date.now())
+      .filter(({ meta }) => !meta.featured);
   });
 
 export const getForSlug = createServerFn()
