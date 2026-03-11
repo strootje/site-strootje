@@ -1,15 +1,10 @@
 import type { ArticleExport } from "@scope/util/blog";
-import { tw } from "@scope/util/uno";
 
 export const Article: ArticleExport = {
   frontmatter: {
-    title: "How I setup my blog with tanstack",
+    title: "Creating a blog as a developer in 2026",
     publishDate: new Date("2026-03-20"),
-    description: "another artible written with care..",
-    tag: {
-      color: tw`bg-cyan-300`,
-      text: "kubernetes",
-    },
+    description: "",
   },
 
   component: () => {

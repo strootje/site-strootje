@@ -32,9 +32,7 @@ export const RecentPost = (props: PostProps) => {
   return (
     <Link to="/blog/$slug" params={{ slug: props.post().slug }}>
       <article class="grid gap-2 bg-white p-2 hover:bg-stone-100">
-        <div class={cx(tw`rounded bg-hero-wiggle-black/5 px-3 py-0`, props.post().meta.tag.color)}>
-          {props.post().meta.tag.text}
-        </div>
+        <div class={cx(tw`h-1`, props.post().meta.tagClass ?? "bg-emerald-400")} />
 
         <header>
           <h3 class="fw-700">{props.post().meta.title}</h3>

@@ -5,7 +5,8 @@ export type Frontmatter = {
   publishDate: Date;
   featured?: true;
   description: string;
-  tag: { color: string; text: string };
+
+  tagClass?: string;
 };
 
 export type ArticleExport = {

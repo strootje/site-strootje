@@ -17,7 +17,7 @@ const removeExt = (filename: string) => {
   return basename(filename).split(".").slice(0, -1).join(".");
 };
 
-const getAllContentMiddleware = createMiddleware()
+const getAllContentMiddleware = createMiddleware({ type: "function" })
   .server(async ({ next }) => {
     const modules = Object.entries(
       import.meta.glob("../content/*.tsx", { eager: true }) as ArticleFiles,
@@ -48,8 +48,8 @@ const getAllContentMiddleware = createMiddleware()
 export const getAll = createServerFn()
   .middleware([getAllContentMiddleware])
   .handler(({ context }) => {
-    return context.articles;
-    // .filter(({ meta }) => Date.parse(meta.publishDate.toISOString()) <= Date.now());
+    return context.articles
+      .filter(({ meta }) => Date.parse(meta.publishDate.toISOString()) <= Date.now());
   });
 
 export const getFeatured = createServerFn()

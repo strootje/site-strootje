@@ -3,19 +3,17 @@ import { tw } from "@scope/util/uno";
 
 export const Article: ArticleExport = {
   frontmatter: {
-    title: "Mijn ervaring met de overstap van scale-up naar corporate",
-    publishDate: new Date("2026-04-03"),
+    title: "Simplified deployments to kubernetes with Github actions and Keel",
+    publishDate: new Date("2026-03-06"),
     description: "another artible written with care..",
-    tag: {
-      color: tw`bg-cyan-300`,
-      text: "kubernetes",
-    },
+
+    tagClass: tw`bg-cyan-300`,
   },
 
   component: () => {
     return (
       <>
-        <h1>Mijn ervaring met de overstap van scale-up naar corporate</h1>
+        <h1>Second Article</h1>
       </>
     );
   },
