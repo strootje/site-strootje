@@ -21,6 +21,6 @@ export const GetPageViews = createServerFn()
 
     return {
       visits: result.results[0].metrics[0] ?? 0,
-      timeOnPage: result.results[0].metrics[1] ?? 0,
+      timeOnPage: result.results[0].metrics[1] ?? 1,
     };
   });

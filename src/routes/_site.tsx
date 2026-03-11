@@ -44,7 +44,7 @@ export const Route = createFileRoute("/_site")({
           </a>
         </header>
 
-        <div class={cx(section, tw`grid items-start gap-6`)}>
+        <div class={cx(section, tw`contents items-start gap-6 *:col-[content]`)}>
           <Outlet />
         </div>
 

@@ -13,7 +13,25 @@ export const Article: ArticleExport = {
   component: () => {
     return (
       <>
-        <h1>Second Article</h1>
+        <div class="prose">
+          <ol>
+            <li>
+              situatie hiervoor?
+              <ul>
+                <li>kustomize template in repo van de app/site</li>
+                <li>de action van de app/site verzorgde ook de deployment</li>
+                <li>permissions all over the place..</li>
+              </ul>
+            </li>
+
+            <li>
+              nieuwe situatie?
+              <ul>
+                <li>asdad</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
       </>
     );
   },

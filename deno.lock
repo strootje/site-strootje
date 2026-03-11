@@ -21,6 +21,7 @@
     "npm:@tiptap/pm@^3.20.1": "3.20.1_prosemirror-model@1.25.4_prosemirror-state@1.4.4_prosemirror-view@1.41.6",
     "npm:@tiptap/starter-kit@^3.20.1": "3.20.1_@tiptap+pm@3.20.1__prosemirror-model@1.25.4__prosemirror-state@1.4.4__prosemirror-view@1.41.6_@tiptap+core@3.20.1__@tiptap+pm@3.20.1___prosemirror-model@1.25.4___prosemirror-state@1.4.4___prosemirror-view@1.41.6_@tiptap+extension-list@3.20.1__@tiptap+core@3.20.1___@tiptap+pm@3.20.1____prosemirror-model@1.25.4____prosemirror-state@1.4.4____prosemirror-view@1.41.6__@tiptap+pm@3.20.1___prosemirror-model@1.25.4___prosemirror-state@1.4.4___prosemirror-view@1.41.6_@tiptap+extensions@3.20.1__@tiptap+core@3.20.1___@tiptap+pm@3.20.1____prosemirror-model@1.25.4____prosemirror-state@1.4.4____prosemirror-view@1.41.6__@tiptap+pm@3.20.1___prosemirror-model@1.25.4___prosemirror-state@1.4.4___prosemirror-view@1.41.6",
     "npm:class-variance-authority@~0.7.1": "0.7.1",
+    "npm:date-fns@^4.1.0": "4.1.0",
     "npm:neverthrow@^8.2.0": "8.2.0",
     "npm:solid-js@^1.9.11": "1.9.11_seroval@1.5.0",
     "npm:unocss@^66.6.6": "66.6.6_vite@7.3.1__picomatch@4.0.3",
@@ -1493,22 +1494,10 @@
         "tiny-warning"
       ]
     },
-    "@tanstack/router-core@1.166.7_seroval@1.5.0": {
-      "integrity": "sha512-MCc8wYIIcxmbeidM8PL2QeaAjUIHyhEDIZPW6NGfn/uwvyi+K2ucn3AGCxxcXl4JGGm0Mx9+7buYl1v3HdcFrg==",
-      "dependencies": [
-        "@tanstack/history",
-        "@tanstack/store",
-        "cookie-es@2.0.0",
-        "seroval",
-        "seroval-plugins",
-        "tiny-invariant",
-        "tiny-warning"
-      ]
-    },
     "@tanstack/router-generator@1.166.2": {
       "integrity": "sha512-wbvdyP1PKKQKk4aVlGeK9S5uDy8zodTr3tEZ2gRKNavJLusXbEWqtoo42JxHFFNB6dtguehFMt8PyZPAtkgWwQ==",
       "dependencies": [
-        "@tanstack/router-core@1.166.2_seroval@1.5.0",
+        "@tanstack/router-core",
         "@tanstack/router-utils",
         "@tanstack/virtual-file-routes",
         "prettier",
@@ -1527,7 +1516,7 @@
         "@babel/template",
         "@babel/traverse",
         "@babel/types",
-        "@tanstack/router-core@1.166.2_seroval@1.5.0",
+        "@tanstack/router-core",
         "@tanstack/router-generator",
         "@tanstack/router-utils",
         "@tanstack/virtual-file-routes",
@@ -1571,7 +1560,7 @@
         "@solid-primitives/refs",
         "@solidjs/meta",
         "@tanstack/history",
-        "@tanstack/router-core@1.166.2_seroval@1.5.0",
+        "@tanstack/router-core",
         "@tanstack/solid-store",
         "isbot",
         "solid-js",
@@ -1582,9 +1571,9 @@
     "@tanstack/solid-start-client@1.166.2_solid-js@1.9.11__seroval@1.5.0": {
       "integrity": "sha512-IPyJqFKVVOj56EwQhxJXONsm8S4b1X/G5DHdU8rvWceF5ONwKn8D0Aoh041SGkIPrdHX1KRdQw3V6x/QbG9eBg==",
       "dependencies": [
-        "@tanstack/router-core@1.166.2_seroval@1.5.0",
+        "@tanstack/router-core",
         "@tanstack/solid-router",
-        "@tanstack/start-client-core@1.166.2",
+        "@tanstack/start-client-core",
         "solid-js",
         "tiny-invariant",
         "tiny-warning"
@@ -1595,9 +1584,9 @@
       "dependencies": [
         "@solidjs/meta",
         "@tanstack/history",
-        "@tanstack/router-core@1.166.2_seroval@1.5.0",
+        "@tanstack/router-core",
         "@tanstack/solid-router",
-        "@tanstack/start-client-core@1.166.2",
+        "@tanstack/start-client-core",
         "@tanstack/start-server-core",
         "solid-js"
       ]
@@ -1608,7 +1597,7 @@
         "@tanstack/solid-router",
         "@tanstack/solid-start-client",
         "@tanstack/solid-start-server",
-        "@tanstack/start-client-core@1.166.2",
+        "@tanstack/start-client-core",
         "@tanstack/start-plugin-core",
         "@tanstack/start-server-core",
         "pathe@2.0.3",
@@ -1626,20 +1615,9 @@
     "@tanstack/start-client-core@1.166.2": {
       "integrity": "sha512-weADfq6bBWgib7Tf7J+P5zF7LHfUm8UuMhijwTfYjaDQ5za04N4PQk5msw2+VchUnSL44aQUA0WeOmoEkG1KMQ==",
       "dependencies": [
-        "@tanstack/router-core@1.166.2_seroval@1.5.0",
+        "@tanstack/router-core",
         "@tanstack/start-fn-stubs",
-        "@tanstack/start-storage-context@1.166.2",
-        "seroval",
-        "tiny-invariant",
-        "tiny-warning"
-      ]
-    },
-    "@tanstack/start-client-core@1.166.7": {
-      "integrity": "sha512-GYSBqJF6yutorSSiOYtOuklAAocvzDM9hijrBSegzxeKJtxUVejIb6M1txH4c+dfikcwaGo6/lnKJWzUE+SjhQ==",
-      "dependencies": [
-        "@tanstack/router-core@1.166.7_seroval@1.5.0",
-        "@tanstack/start-fn-stubs",
-        "@tanstack/start-storage-context@1.166.7",
+        "@tanstack/start-storage-context",
         "seroval",
         "tiny-invariant",
         "tiny-warning"
@@ -1655,11 +1633,11 @@
         "@babel/core",
         "@babel/types",
         "@rolldown/pluginutils",
-        "@tanstack/router-core@1.166.2_seroval@1.5.0",
+        "@tanstack/router-core",
         "@tanstack/router-generator",
         "@tanstack/router-plugin",
         "@tanstack/router-utils",
-        "@tanstack/start-client-core@1.166.2",
+        "@tanstack/start-client-core",
         "@tanstack/start-server-core",
         "cheerio",
         "exsolve",
@@ -1679,35 +1657,18 @@
       "integrity": "sha512-9BDZsaLyHVux5tJRRBRYa2xW2jUaKr4PbJkTCSSOnAByOGUVJy7N+790/Q1Kq/LVud+0h42vZHWSRDDywfnedQ==",
       "dependencies": [
         "@tanstack/history",
-        "@tanstack/router-core@1.166.2_seroval@1.5.0",
-        "@tanstack/start-client-core@1.166.2",
-        "@tanstack/start-storage-context@1.166.2",
+        "@tanstack/router-core",
+        "@tanstack/start-client-core",
+        "@tanstack/start-storage-context",
         "h3-v2@npm:h3@2.0.1-rc.14",
         "seroval",
         "tiny-invariant"
       ]
     },
-    "@tanstack/start-static-server-functions@1.166.7_@tanstack+solid-start@1.166.3__solid-js@1.9.11___seroval@1.5.0__vite@7.3.1___picomatch@4.0.3__vite-plugin-solid@2.11.10___solid-js@1.9.11____seroval@1.5.0___vite@7.3.1____picomatch@4.0.3___@babel+core@7.29.0_solid-js@1.9.11__seroval@1.5.0_vite@7.3.1__picomatch@4.0.3_vite-plugin-solid@2.11.10__solid-js@1.9.11___seroval@1.5.0__vite@7.3.1___picomatch@4.0.3__@babel+core@7.29.0": {
-      "integrity": "sha512-d5VLHd8a++iet5sxyVgmcxLIo3OKgK4F6VqmlBQH/aBuXuh6va6hHT9OBL9Wp/pE4VFF+jicpX7y9H0qAmI2RQ==",
-      "dependencies": [
-        "@tanstack/solid-start",
-        "@tanstack/start-client-core@1.166.7",
-        "seroval"
-      ],
-      "optionalPeers": [
-        "@tanstack/solid-start"
-      ]
-    },
     "@tanstack/start-storage-context@1.166.2": {
       "integrity": "sha512-c3QPApFAhiDXDZ/zLvop5InErqCrawWuO751FpItGnelOlpOAPMw5/h//1u/RnIcOv2l/ffDBCbp+N09eFPhaA==",
       "dependencies": [
-        "@tanstack/router-core@1.166.2_seroval@1.5.0"
-      ]
-    },
-    "@tanstack/start-storage-context@1.166.7": {
-      "integrity": "sha512-u6gIqf5JAxMBaCUdF34fa0mQEDatj44kJ2i9U3RtI220TgwIxUKCYxhxUpXxtYBU3whCZ07EYwBpKeWxrIhXZQ==",
-      "dependencies": [
-        "@tanstack/router-core@1.166.7_seroval@1.5.0"
+        "@tanstack/router-core"
       ]
     },
     "@tanstack/store@0.9.1": {
@@ -3334,6 +3295,9 @@
     },
     "csstype@3.2.3": {
       "integrity": "sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ=="
+    },
+    "date-fns@4.1.0": {
+      "integrity": "sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg=="
     },
     "db0@0.3.4": {
       "integrity": "sha512-RiXXi4WaNzPTHEOu8UPQKMooIbqOEyqA1t7Z6MsdxSCeb8iUC9ko3LcmsLmeUt2SM5bctfArZKkRQggKZz7JNw=="
@@ -5388,6 +5352,7 @@
         "npm:@tiptap/pm@^3.20.1",
         "npm:@tiptap/starter-kit@^3.20.1",
         "npm:class-variance-authority@~0.7.1",
+        "npm:date-fns@^4.1.0",
         "npm:neverthrow@^8.2.0",
         "npm:solid-js@^1.9.11",
         "npm:unocss@^66.6.6",
