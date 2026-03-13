@@ -40,7 +40,6 @@ export const reqres = <TIn extends SS, TOut extends SS>(
   return async (input: SS.InferInput<TIn>): Promise<SS.InferOutput<TOut>> => {
     const result = await func(await validate(schema.req, input));
     const resultJson = await result.json();
-    console.log("resultJson", resultJson);
     return await validate(schema.res, resultJson);
   };
 };

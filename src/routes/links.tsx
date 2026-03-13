@@ -1,10 +1,10 @@
 import { Avatar } from "#/components/avatar.tsx";
 import { Icon } from "#/components/icon.tsx";
 import * as contentFns from "#/functions/content.functions.ts";
+import { Env } from "#/functions/env.service.ts";
 import { tw } from "@scope/util/uno";
 import { createFileRoute, Link } from "@tanstack/solid-router";
 import { cx } from "class-variance-authority";
-// @ts-types="solid-js"
 import { Show } from "solid-js";
 
 const section = tw`col-[content]`;
@@ -24,6 +24,7 @@ const footerHref = tw`flex gap-1 px-3 py-2`;
 
 export const Route = createFileRoute("/links")({
   loader: async () => ({
+    personalInfo: Env.PersonalInfo,
     recentArticle: (await contentFns.getRecent()).at(-1),
   }),
 
@@ -40,7 +41,7 @@ export const Route = createFileRoute("/links")({
 
           <h1 class="text-2xl">Bas Stroosnijder</h1>
           <aside class={cx(subText, "text-center grid")}>
-            <span>Utrecht area - Freelance</span>
+            <span>Utrecht area</span>
             <span>Senior .NET Engineer</span>
           </aside>
         </header>
@@ -53,7 +54,7 @@ export const Route = createFileRoute("/links")({
           <nav class={sectionNav}>
             <ul class={sectionNavUl}>
               <li class={sectionNavLi}>
-                <Link class={sectionHref} to="/">
+                <a class={sectionHref} href="https://strootje.com">
                   <div class={cx(iconWrapper, "bg-rose-800/20 text-rose-800")}>
                     <img class={imgFavicon} src="https://strootje.com/favicon.ico" />
                   </div>
@@ -64,7 +65,7 @@ export const Route = createFileRoute("/links")({
                   </div>
 
                   <Icon class="i-solar:arrow-right-outline" />
-                </Link>
+                </a>
               </li>
 
               <Show when={data().recentArticle}>
@@ -170,20 +171,24 @@ export const Route = createFileRoute("/links")({
                 </a>
               </li>
 
-              <li class={sectionNavLi}>
-                <a class={sectionHref} href="https://wa.me/31641417771" target="_blank">
-                  <div class={cx(iconWrapper, "bg-[#25D366]/20 text-[#25D366]")}>
-                    <Icon class="i-brand:whatsapp text-2xl" />
-                  </div>
+              <Show when={data().personalInfo.whatsapp}>
+                {(whatsapp) => (
+                  <li class={sectionNavLi}>
+                    <a class={sectionHref} href={`https://wa.me/${whatsapp()}`} target="_blank">
+                      <div class={cx(iconWrapper, "bg-[#25D366]/20 text-[#25D366]")}>
+                        <Icon class="i-brand:whatsapp text-2xl" />
+                      </div>
 
-                  <div class="grid grow">
-                    <span>Whatsapp</span>
-                    <span class={subText}>Send me a text</span>
-                  </div>
+                      <div class="grid grow">
+                        <span>Whatsapp</span>
+                        <span class={subText}>Send me a text</span>
+                      </div>
 
-                  <Icon class="i-solar:arrow-right-outline" />
-                </a>
-              </li>
+                      <Icon class="i-solar:arrow-right-outline" />
+                    </a>
+                  </li>
+                )}
+              </Show>
             </ul>
           </nav>
         </section>

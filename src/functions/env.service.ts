@@ -21,4 +21,8 @@ export const Env = {
     baseUri: getOr("PLAUSIBLE_BASEURI", "https://stats.strooware.nl"),
     token: getOr("PLAUSIBLE_TOKEN"),
   },
+
+  PersonalInfo: {
+    whatsapp: getOr("PERSONALINFO_WHATSAPP"),
+  },
 } as const;
