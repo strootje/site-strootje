@@ -4,6 +4,9 @@ import * as mailingFns from "#/functions/mailing.functions.ts";
 import { tw } from "@scope/util/uno";
 import { createFileRoute, Link, Outlet } from "@tanstack/solid-router";
 import { cx } from "class-variance-authority";
+import * as v from "valibot";
+// @ts-types="solid-js"
+import { Show } from "solid-js";
 
 const section = tw`col-[content]`;
 
@@ -15,6 +18,12 @@ export const Route = createFileRoute("/_site")({
     const subscribe = useAppForm(() => ({
       defaultValues: {
         email: "",
+      },
+
+      validators: {
+        onChange: v.object({
+          email: v.pipe(v.string(), v.email()),
+        }),
       },
 
       onSubmit: async ({ value }) => {
@@ -48,29 +57,36 @@ export const Route = createFileRoute("/_site")({
           <Outlet />
         </div>
 
-        <section class={cx(section, tw`grid gap-4 bg-emerald-700 bg-hero-wiggle-black/5 p-8 text-stone-100`)}>
-          <header>
-            <h2>Nooit een nieuwe post missen?</h2>
-            <aside>Geen spam, nooit!</aside>
-          </header>
+        <Show when={false}>
+          <section class={cx(section, tw`grid gap-4 bg-emerald-700 bg-hero-wiggle-black/5 p-8 text-stone-100`)}>
+            <header>
+              <h2 class="font-mono text-xl">Never miss a thing?</h2>
+            </header>
 
-          <subscribe.AppForm>
-            <form
-              onsubmit={async (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                await subscribe.handleSubmit();
-              }}
-            >
-              <subscribe.AppField name="email">
-                {(field) => <field.TextField class={cx(input, tw`bg-white/20`)} type="email" />}
-              </subscribe.AppField>
-              <subscribe.SubmitButton class={cx(input, tw`bg-stone-100 text-emerald-700`)}>
-                Inschrijven
-              </subscribe.SubmitButton>
-            </form>
-          </subscribe.AppForm>
-        </section>
+            <subscribe.AppForm>
+              <form
+                onsubmit={async (e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  await subscribe.handleSubmit();
+                }}
+              >
+                <subscribe.AppField name="email">
+                  {(field) => (
+                    <field.TextField
+                      class={cx(input, tw`bg-white/20`)}
+                      placeholder="<naam>@overheid.nl.gov"
+                      type="email"
+                    />
+                  )}
+                </subscribe.AppField>
+                <subscribe.SubmitButton class={cx(input, tw`bg-stone-100 text-emerald-700`)}>
+                  Subscribe
+                </subscribe.SubmitButton>
+              </form>
+            </subscribe.AppForm>
+          </section>
+        </Show>
 
         <footer class={section}>
           <nav>

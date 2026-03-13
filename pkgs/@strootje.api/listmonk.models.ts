@@ -1,7 +1,9 @@
 import { err, ok } from "neverthrow";
 import * as v from "valibot";
 
-const response = <TEntries extends v.ObjectEntries>(data: v.ObjectSchema<TEntries, undefined>) => {
+const response = <
+  TSchema extends v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>>,
+>(data: TSchema) => {
   return v.pipe(
     v.union([
       v.object({ message: v.string() }),
@@ -109,9 +111,10 @@ export const PublicSubscription = {
     name: v.optional(v.string()),
     list_uuids: v.array(v.string()),
   }),
-  res: response(v.object({
-    data: v.literal(true),
-  })),
+  res: response(v.union([
+    v.literal(true),
+    v.object({ has_optin: v.boolean() }),
+  ])),
 };
 
 export const FindSubscribers = {

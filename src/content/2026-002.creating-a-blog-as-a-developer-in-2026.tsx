@@ -10,7 +10,7 @@ export const Article: ArticleExport = {
   component: () => {
     return (
       <>
-        <h1>Mijn ervaring met de overstap van scale-up naar corporate</h1>
+        <p>otdo</p>
       </>
     );
   },

@@ -17,11 +17,48 @@ export const Route = createFileRoute("/_site/")({
     return (
       <>
         <section>
-          <header>
-            <h1 class="text-2xl">
-              Bouwen, Slopen en <span class="fw-700 inline-block text-emerald-700 italic">leren</span> in het openbaar
+          <header class="grid gap-4">
+            <h1 class="font-title text-3xl">
+              <div>Bouwen, Slopen maar vooral</div>
+              <div>
+                <span class="fw-700 inline-block text-emerald-700 italic">leren</span> in het openbaar
+              </div>
             </h1>
-            <aside>Ik schrijf over alles wat ik interesant vind.. Je doet het er maar mee!</aside>
+            {
+              /*
+            <aside>
+              <span>Ik schrijf over alles wat ik interesant vind..</span>
+              <span>Je doet het er maar mee!</span>
+            </aside> */
+            }
+
+            <aside>
+              <div>Bas Stroosnijder</div>
+              <div class="-mt-1 text-sm text-stone-600">Senior .NET engineer @ RABOBANK</div>
+              <ul class="flex gap-3 text-stone-800">
+                <li>
+                  <a
+                    href="https://linkedin.com/in/bas-stroosnijder"
+                    class="flex items-center gap-1"
+                    target="_blank"
+                  >
+                    <Icon class="i-solar:arrow-right-outline text-sm" />
+                    <span>Linkedin</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://strooware.nl"
+                    class="flex items-center gap-1"
+                    target="_blank"
+                  >
+                    <Icon class="i-solar:arrow-right-outline text-sm" />
+                    <span>strooware.nl</span>
+                  </a>
+                </li>
+              </ul>
+            </aside>
           </header>
         </section>
 

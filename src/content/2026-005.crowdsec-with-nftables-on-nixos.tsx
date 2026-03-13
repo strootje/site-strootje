@@ -3,7 +3,7 @@ import type { ArticleExport } from "@scope/util/blog";
 export const Article: ArticleExport = {
   frontmatter: {
     title: "Configuring CrowdSec with NfTables on NixOS",
-    publishDate: new Date("2026-02-27"),
+    publishDate: new Date("2026-04-27"),
     description: "This is my first article written on my site",
   },
 

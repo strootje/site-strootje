@@ -26,7 +26,6 @@ export const createListmonkClient = map(s.ListmonkOpts, ({ authorization, baseUr
 
     public: {
       subscription: reqres(s.PublicSubscription, (opts) => {
-        console.log("body?", JSON.stringify(opts));
         return fetch(`${baseUri}/api/public/subscription`, {
           body: JSON.stringify(opts),
           method: "POST",

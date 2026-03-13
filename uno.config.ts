@@ -26,6 +26,7 @@ export default defineConfig({
       fonts: {
         mono: ["Chivo Mono:300"],
         sans: ["Space Grotesk:400;700"],
+        title: ["Lora:normal;italic:300;700"],
       },
     }),
     presetIcons({

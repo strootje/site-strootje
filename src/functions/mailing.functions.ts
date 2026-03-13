@@ -20,4 +20,6 @@ export const subscribeToMailingList = createServerFn()
     if (result.isErr()) {
       throw result.error;
     }
+
+    return result.value;
   });

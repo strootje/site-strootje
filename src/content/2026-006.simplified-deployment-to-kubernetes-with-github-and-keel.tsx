@@ -4,7 +4,7 @@ import { tw } from "@scope/util/uno";
 export const Article: ArticleExport = {
   frontmatter: {
     title: "Simplified deployments to kubernetes with Github actions and Keel",
-    publishDate: new Date("2026-03-06"),
+    publishDate: new Date("2026-05-06"),
     description: "another artible written with care..",
 
     tagClass: tw`bg-cyan-300`,

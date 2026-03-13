@@ -3,7 +3,7 @@ import * as contentFns from "#/functions/content.functions.ts";
 import * as statFns from "#/functions/stat.functions.ts";
 import { createFileRoute } from "@tanstack/solid-router";
 import { formatDistanceWithOptions, formatDuration } from "date-fns/fp";
-import { ErrorBoundary, Suspense } from "solid-js";
+import { ErrorBoundary, Show, Suspense } from "solid-js";
 
 export const Route = createFileRoute("/_site/blog/$slug")({
   loader: async ({ location, params }) => ({
@@ -20,17 +20,15 @@ export const Route = createFileRoute("/_site/blog/$slug")({
         <header class="grid gap-4 font-mono">
           <h1 class="fw-700 text-xl">{data().article.meta.title}</h1>
 
-          <aside class="flex justify-around gap-4 text-xs flex-wrap">
-            <div class="flex items-center gap-1">
-              <Icon class="i-solar:calendar-outline" />
-              <span>
-                {formatDistanceWithOptions(
-                  { addSuffix: true },
-                  Date.now(),
-                  data().article.meta.publishDate,
-                )}
-              </span>
-            </div>
+          <aside class="flex flex-wrap justify-around gap-4 text-xs">
+            <Show when={data().article.meta.publishDate}>
+              {(publishDate) => (
+                <div class="flex items-center gap-1">
+                  <Icon class="i-solar:calendar-outline" />
+                  <span>{formatDistanceWithOptions({ addSuffix: true }, Date.now(), publishDate())}</span>
+                </div>
+              )}
+            </Show>
 
             <div class="flex items-center gap-1">
               <Icon class="i-solar:eye-outline" />
@@ -38,14 +36,14 @@ export const Route = createFileRoute("/_site/blog/$slug")({
               <span>reads</span>
             </div>
 
-            <div class="flex items-center gap-1">
-              <Icon class="i-solar:clock-circle-outline" />
-              <span>
-                {formatDuration(
-                  { minutes: data().stats.timeOnPage },
-                )}
-              </span>
-            </div>
+            <Show when={data().stats.timeOnPage}>
+              {(timeOnPage) => (
+                <div class="flex items-center gap-1">
+                  <Icon class="i-solar:clock-circle-outline" />
+                  <span>{formatDuration({ minutes: timeOnPage() })}</span>
+                </div>
+              )}
+            </Show>
           </aside>
         </header>
 

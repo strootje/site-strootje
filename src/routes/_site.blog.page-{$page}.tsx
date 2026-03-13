@@ -15,7 +15,7 @@ export const Route = createFileRoute("/_site/blog/page-{$page}")({
     return (
       <>
         <header class="bg-emerald-700 bg-hero-wiggle-black/5 p-8 text-stone-200">
-          <h1 class="text-2xl">alles wat ik te zeggen heb..</h1>
+          <h1 class="text-2xl">Articles</h1>
         </header>
 
         <div class="b-1 b-stone-200 grid divide-y divide-stone-200">
