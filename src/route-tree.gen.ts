@@ -10,21 +10,34 @@
 
 import { Route as rootRouteImport } from "./routes/__root.tsx"
 import { Route as LinksRouteImport } from "./routes/links.tsx"
+import { Route as AdminRouteImport } from "./routes/admin.tsx"
 import { Route as SiteRouteImport } from "./routes/_site.tsx"
+import { Route as AdminIndexRouteImport } from "./routes/admin.index.tsx"
 import { Route as SiteIndexRouteImport } from "./routes/_site.index.tsx"
 import { Route as AdminNewRouteImport } from "./routes/admin.new.tsx"
 import { Route as SiteBlogIndexRouteImport } from "./routes/_site.blog.index.tsx"
 import { Route as SiteBlogPageChar123pageChar125RouteImport } from "./routes/_site.blog.page-{$page}.tsx"
 import { Route as SiteBlogSlugRouteImport } from "./routes/_site.blog.$slug.tsx"
+import { Route as AdminArticleEditChar123PostIdChar125RouteImport } from "./routes/admin.article.edit.{-$postId}.tsx"
 
 const LinksRoute = LinksRouteImport.update({
   id: "/links",
   path: "/links",
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: "/admin",
+  path: "/admin",
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SiteRoute = SiteRouteImport.update({
   id: "/_site",
   getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: "/",
+  path: "/",
+  getParentRoute: () => AdminRoute,
 } as any)
 const SiteIndexRoute = SiteIndexRouteImport.update({
   id: "/",
@@ -32,9 +45,9 @@ const SiteIndexRoute = SiteIndexRouteImport.update({
   getParentRoute: () => SiteRoute,
 } as any)
 const AdminNewRoute = AdminNewRouteImport.update({
-  id: "/admin/new",
-  path: "/admin/new",
-  getParentRoute: () => rootRouteImport,
+  id: "/new",
+  path: "/new",
+  getParentRoute: () => AdminRoute,
 } as any)
 const SiteBlogIndexRoute = SiteBlogIndexRouteImport.update({
   id: "/blog/",
@@ -52,65 +65,87 @@ const SiteBlogSlugRoute = SiteBlogSlugRouteImport.update({
   path: "/blog/$slug",
   getParentRoute: () => SiteRoute,
 } as any)
+const AdminArticleEditChar123PostIdChar125Route =
+  AdminArticleEditChar123PostIdChar125RouteImport.update({
+    id: "/article/edit/{-$postId}",
+    path: "/article/edit/{-$postId}",
+    getParentRoute: () => AdminRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   "/": typeof SiteIndexRoute
+  "/admin": typeof AdminRouteWithChildren
   "/links": typeof LinksRoute
   "/admin/new": typeof AdminNewRoute
+  "/admin/": typeof AdminIndexRoute
   "/blog/$slug": typeof SiteBlogSlugRoute
   "/blog/page-{$page}": typeof SiteBlogPageChar123pageChar125Route
   "/blog/": typeof SiteBlogIndexRoute
+  "/admin/article/edit/{-$postId}": typeof AdminArticleEditChar123PostIdChar125Route
 }
 export interface FileRoutesByTo {
   "/links": typeof LinksRoute
   "/admin/new": typeof AdminNewRoute
   "/": typeof SiteIndexRoute
+  "/admin": typeof AdminIndexRoute
   "/blog/$slug": typeof SiteBlogSlugRoute
   "/blog/page-{$page}": typeof SiteBlogPageChar123pageChar125Route
   "/blog": typeof SiteBlogIndexRoute
+  "/admin/article/edit/{-$postId}": typeof AdminArticleEditChar123PostIdChar125Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   "/_site": typeof SiteRouteWithChildren
+  "/admin": typeof AdminRouteWithChildren
   "/links": typeof LinksRoute
   "/admin/new": typeof AdminNewRoute
   "/_site/": typeof SiteIndexRoute
+  "/admin/": typeof AdminIndexRoute
   "/_site/blog/$slug": typeof SiteBlogSlugRoute
   "/_site/blog/page-{$page}": typeof SiteBlogPageChar123pageChar125Route
   "/_site/blog/": typeof SiteBlogIndexRoute
+  "/admin/article/edit/{-$postId}": typeof AdminArticleEditChar123PostIdChar125Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | "/"
+    | "/admin"
     | "/links"
     | "/admin/new"
+    | "/admin/"
     | "/blog/$slug"
     | "/blog/page-{$page}"
     | "/blog/"
+    | "/admin/article/edit/{-$postId}"
   fileRoutesByTo: FileRoutesByTo
   to:
     | "/links"
     | "/admin/new"
     | "/"
+    | "/admin"
     | "/blog/$slug"
     | "/blog/page-{$page}"
     | "/blog"
+    | "/admin/article/edit/{-$postId}"
   id:
     | "__root__"
     | "/_site"
+    | "/admin"
     | "/links"
     | "/admin/new"
     | "/_site/"
+    | "/admin/"
     | "/_site/blog/$slug"
     | "/_site/blog/page-{$page}"
     | "/_site/blog/"
+    | "/admin/article/edit/{-$postId}"
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   SiteRoute: typeof SiteRouteWithChildren
+  AdminRoute: typeof AdminRouteWithChildren
   LinksRoute: typeof LinksRoute
-  AdminNewRoute: typeof AdminNewRoute
 }
 
 declare module "@tanstack/solid-router" {
@@ -122,12 +157,26 @@ declare module "@tanstack/solid-router" {
       preLoaderRoute: typeof LinksRouteImport
       parentRoute: typeof rootRouteImport
     }
+    "/admin": {
+      id: "/admin"
+      path: "/admin"
+      fullPath: "/admin"
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     "/_site": {
       id: "/_site"
       path: ""
       fullPath: "/"
       preLoaderRoute: typeof SiteRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    "/admin/": {
+      id: "/admin/"
+      path: "/"
+      fullPath: "/admin/"
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
     }
     "/_site/": {
       id: "/_site/"
@@ -138,10 +187,10 @@ declare module "@tanstack/solid-router" {
     }
     "/admin/new": {
       id: "/admin/new"
-      path: "/admin/new"
+      path: "/new"
       fullPath: "/admin/new"
       preLoaderRoute: typeof AdminNewRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRoute
     }
     "/_site/blog/": {
       id: "/_site/blog/"
@@ -164,6 +213,13 @@ declare module "@tanstack/solid-router" {
       preLoaderRoute: typeof SiteBlogSlugRouteImport
       parentRoute: typeof SiteRoute
     }
+    "/admin/article/edit/{-$postId}": {
+      id: "/admin/article/edit/{-$postId}"
+      path: "/article/edit/{-$postId}"
+      fullPath: "/admin/article/edit/{-$postId}"
+      preLoaderRoute: typeof AdminArticleEditChar123PostIdChar125RouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
@@ -183,10 +239,25 @@ const SiteRouteChildren: SiteRouteChildren = {
 
 const SiteRouteWithChildren = SiteRoute._addFileChildren(SiteRouteChildren)
 
+interface AdminRouteChildren {
+  AdminNewRoute: typeof AdminNewRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  AdminArticleEditChar123PostIdChar125Route: typeof AdminArticleEditChar123PostIdChar125Route
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminNewRoute: AdminNewRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  AdminArticleEditChar123PostIdChar125Route:
+    AdminArticleEditChar123PostIdChar125Route,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   SiteRoute: SiteRouteWithChildren,
+  AdminRoute: AdminRouteWithChildren,
   LinksRoute: LinksRoute,
-  AdminNewRoute: AdminNewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,6 +1,6 @@
 import deno from "@deno/vite-plugin";
-import { nitroV2Plugin } from "@tanstack/nitro-v2-vite-plugin";
 import { tanstackStart } from "@tanstack/solid-start/plugin/vite";
+import { nitro } from "nitro/vite";
 import uno from "unocss/vite";
 import { defineConfig } from "vite";
 import solid from "vite-plugin-solid";
@@ -8,6 +8,7 @@ import solid from "vite-plugin-solid";
 export default defineConfig({
   plugins: [
     deno(),
+    uno({ mode: "per-module" }),
     tanstackStart({
       router: {
         addExtensions: true,
@@ -15,12 +16,11 @@ export default defineConfig({
         quoteStyle: "double",
       },
     }),
-    nitroV2Plugin({
+    nitro({
+      compatibilityDate: "latest",
       preset: "deno-server",
-      compatibilityDate: "2026-03-05",
     }),
     solid({ ssr: true }),
-    uno(),
   ],
 
   server: {

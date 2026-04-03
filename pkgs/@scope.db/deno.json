@@ -1,0 +1,6 @@
+{
+  "name": "@scope/db",
+  "exports": {
+    "./server": "./mod.server.ts"
+  }
+}

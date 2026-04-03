@@ -1,5 +1,5 @@
-import { basename } from "@jsr/std__path";
 import type { ArticleExport } from "@scope/util/blog";
+import { basename } from "@std/path";
 import { createMiddleware, createServerFn } from "@tanstack/solid-start";
 import { lazy } from "solid-js";
 import * as v from "valibot";
