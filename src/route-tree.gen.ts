@@ -12,13 +12,9 @@ import { Route as rootRouteImport } from "./routes/__root.tsx"
 import { Route as LinksRouteImport } from "./routes/links.tsx"
 import { Route as AdminRouteImport } from "./routes/admin.tsx"
 import { Route as SiteRouteImport } from "./routes/_site.tsx"
-import { Route as AdminIndexRouteImport } from "./routes/admin.index.tsx"
 import { Route as SiteIndexRouteImport } from "./routes/_site.index.tsx"
-import { Route as AdminNewRouteImport } from "./routes/admin.new.tsx"
-import { Route as SiteBlogIndexRouteImport } from "./routes/_site.blog.index.tsx"
-import { Route as SiteBlogPageChar123pageChar125RouteImport } from "./routes/_site.blog.page-{$page}.tsx"
 import { Route as SiteBlogSlugRouteImport } from "./routes/_site.blog.$slug.tsx"
-import { Route as AdminArticleEditChar123PostIdChar125RouteImport } from "./routes/admin.article.edit.{-$postId}.tsx"
+import { Route as AdminBlogSlugEditRouteImport } from "./routes/admin.blog.$slug.edit.tsx"
 
 const LinksRoute = LinksRouteImport.update({
   id: "/links",
@@ -34,77 +30,44 @@ const SiteRoute = SiteRouteImport.update({
   id: "/_site",
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminIndexRoute = AdminIndexRouteImport.update({
-  id: "/",
-  path: "/",
-  getParentRoute: () => AdminRoute,
-} as any)
 const SiteIndexRoute = SiteIndexRouteImport.update({
   id: "/",
   path: "/",
   getParentRoute: () => SiteRoute,
 } as any)
-const AdminNewRoute = AdminNewRouteImport.update({
-  id: "/new",
-  path: "/new",
-  getParentRoute: () => AdminRoute,
-} as any)
-const SiteBlogIndexRoute = SiteBlogIndexRouteImport.update({
-  id: "/blog/",
-  path: "/blog/",
-  getParentRoute: () => SiteRoute,
-} as any)
-const SiteBlogPageChar123pageChar125Route =
-  SiteBlogPageChar123pageChar125RouteImport.update({
-    id: "/blog/page-{$page}",
-    path: "/blog/page-{$page}",
-    getParentRoute: () => SiteRoute,
-  } as any)
 const SiteBlogSlugRoute = SiteBlogSlugRouteImport.update({
   id: "/blog/$slug",
   path: "/blog/$slug",
   getParentRoute: () => SiteRoute,
 } as any)
-const AdminArticleEditChar123PostIdChar125Route =
-  AdminArticleEditChar123PostIdChar125RouteImport.update({
-    id: "/article/edit/{-$postId}",
-    path: "/article/edit/{-$postId}",
-    getParentRoute: () => AdminRoute,
-  } as any)
+const AdminBlogSlugEditRoute = AdminBlogSlugEditRouteImport.update({
+  id: "/blog/$slug/edit",
+  path: "/blog/$slug/edit",
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   "/": typeof SiteIndexRoute
   "/admin": typeof AdminRouteWithChildren
   "/links": typeof LinksRoute
-  "/admin/new": typeof AdminNewRoute
-  "/admin/": typeof AdminIndexRoute
   "/blog/$slug": typeof SiteBlogSlugRoute
-  "/blog/page-{$page}": typeof SiteBlogPageChar123pageChar125Route
-  "/blog/": typeof SiteBlogIndexRoute
-  "/admin/article/edit/{-$postId}": typeof AdminArticleEditChar123PostIdChar125Route
+  "/admin/blog/$slug/edit": typeof AdminBlogSlugEditRoute
 }
 export interface FileRoutesByTo {
+  "/admin": typeof AdminRouteWithChildren
   "/links": typeof LinksRoute
-  "/admin/new": typeof AdminNewRoute
   "/": typeof SiteIndexRoute
-  "/admin": typeof AdminIndexRoute
   "/blog/$slug": typeof SiteBlogSlugRoute
-  "/blog/page-{$page}": typeof SiteBlogPageChar123pageChar125Route
-  "/blog": typeof SiteBlogIndexRoute
-  "/admin/article/edit/{-$postId}": typeof AdminArticleEditChar123PostIdChar125Route
+  "/admin/blog/$slug/edit": typeof AdminBlogSlugEditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   "/_site": typeof SiteRouteWithChildren
   "/admin": typeof AdminRouteWithChildren
   "/links": typeof LinksRoute
-  "/admin/new": typeof AdminNewRoute
   "/_site/": typeof SiteIndexRoute
-  "/admin/": typeof AdminIndexRoute
   "/_site/blog/$slug": typeof SiteBlogSlugRoute
-  "/_site/blog/page-{$page}": typeof SiteBlogPageChar123pageChar125Route
-  "/_site/blog/": typeof SiteBlogIndexRoute
-  "/admin/article/edit/{-$postId}": typeof AdminArticleEditChar123PostIdChar125Route
+  "/admin/blog/$slug/edit": typeof AdminBlogSlugEditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -112,34 +75,18 @@ export interface FileRouteTypes {
     | "/"
     | "/admin"
     | "/links"
-    | "/admin/new"
-    | "/admin/"
     | "/blog/$slug"
-    | "/blog/page-{$page}"
-    | "/blog/"
-    | "/admin/article/edit/{-$postId}"
+    | "/admin/blog/$slug/edit"
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | "/links"
-    | "/admin/new"
-    | "/"
-    | "/admin"
-    | "/blog/$slug"
-    | "/blog/page-{$page}"
-    | "/blog"
-    | "/admin/article/edit/{-$postId}"
+  to: "/admin" | "/links" | "/" | "/blog/$slug" | "/admin/blog/$slug/edit"
   id:
     | "__root__"
     | "/_site"
     | "/admin"
     | "/links"
-    | "/admin/new"
     | "/_site/"
-    | "/admin/"
     | "/_site/blog/$slug"
-    | "/_site/blog/page-{$page}"
-    | "/_site/blog/"
-    | "/admin/article/edit/{-$postId}"
+    | "/admin/blog/$slug/edit"
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -171,39 +118,11 @@ declare module "@tanstack/solid-router" {
       preLoaderRoute: typeof SiteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    "/admin/": {
-      id: "/admin/"
-      path: "/"
-      fullPath: "/admin/"
-      preLoaderRoute: typeof AdminIndexRouteImport
-      parentRoute: typeof AdminRoute
-    }
     "/_site/": {
       id: "/_site/"
       path: "/"
       fullPath: "/"
       preLoaderRoute: typeof SiteIndexRouteImport
-      parentRoute: typeof SiteRoute
-    }
-    "/admin/new": {
-      id: "/admin/new"
-      path: "/new"
-      fullPath: "/admin/new"
-      preLoaderRoute: typeof AdminNewRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    "/_site/blog/": {
-      id: "/_site/blog/"
-      path: "/blog"
-      fullPath: "/blog/"
-      preLoaderRoute: typeof SiteBlogIndexRouteImport
-      parentRoute: typeof SiteRoute
-    }
-    "/_site/blog/page-{$page}": {
-      id: "/_site/blog/page-{$page}"
-      path: "/blog/page-{$page}"
-      fullPath: "/blog/page-{$page}"
-      preLoaderRoute: typeof SiteBlogPageChar123pageChar125RouteImport
       parentRoute: typeof SiteRoute
     }
     "/_site/blog/$slug": {
@@ -213,11 +132,11 @@ declare module "@tanstack/solid-router" {
       preLoaderRoute: typeof SiteBlogSlugRouteImport
       parentRoute: typeof SiteRoute
     }
-    "/admin/article/edit/{-$postId}": {
-      id: "/admin/article/edit/{-$postId}"
-      path: "/article/edit/{-$postId}"
-      fullPath: "/admin/article/edit/{-$postId}"
-      preLoaderRoute: typeof AdminArticleEditChar123PostIdChar125RouteImport
+    "/admin/blog/$slug/edit": {
+      id: "/admin/blog/$slug/edit"
+      path: "/blog/$slug/edit"
+      fullPath: "/admin/blog/$slug/edit"
+      preLoaderRoute: typeof AdminBlogSlugEditRouteImport
       parentRoute: typeof AdminRoute
     }
   }
@@ -226,30 +145,21 @@ declare module "@tanstack/solid-router" {
 interface SiteRouteChildren {
   SiteIndexRoute: typeof SiteIndexRoute
   SiteBlogSlugRoute: typeof SiteBlogSlugRoute
-  SiteBlogPageChar123pageChar125Route: typeof SiteBlogPageChar123pageChar125Route
-  SiteBlogIndexRoute: typeof SiteBlogIndexRoute
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
   SiteIndexRoute: SiteIndexRoute,
   SiteBlogSlugRoute: SiteBlogSlugRoute,
-  SiteBlogPageChar123pageChar125Route: SiteBlogPageChar123pageChar125Route,
-  SiteBlogIndexRoute: SiteBlogIndexRoute,
 }
 
 const SiteRouteWithChildren = SiteRoute._addFileChildren(SiteRouteChildren)
 
 interface AdminRouteChildren {
-  AdminNewRoute: typeof AdminNewRoute
-  AdminIndexRoute: typeof AdminIndexRoute
-  AdminArticleEditChar123PostIdChar125Route: typeof AdminArticleEditChar123PostIdChar125Route
+  AdminBlogSlugEditRoute: typeof AdminBlogSlugEditRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
-  AdminNewRoute: AdminNewRoute,
-  AdminIndexRoute: AdminIndexRoute,
-  AdminArticleEditChar123PostIdChar125Route:
-    AdminArticleEditChar123PostIdChar125Route,
+  AdminBlogSlugEditRoute: AdminBlogSlugEditRoute,
 }
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)

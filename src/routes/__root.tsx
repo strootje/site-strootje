@@ -1,3 +1,4 @@
+import { createLocale, I18nProvider } from "#/components/context.i18n.ts";
 import { Plausible } from "#/components/plausible.tsx";
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/solid-router";
 import { HydrationScript } from "solid-js/web";
@@ -16,18 +17,41 @@ export const Route = createRootRoute({
     ],
   }),
 
-  component: () => (
-    <html>
-      <head>
-        <HeadContent />
-        <HydrationScript />
-      </head>
+  component: () => {
+    const [locale] = createLocale();
 
-      <body>
-        <Outlet />
-        <Scripts />
-        <Plausible.Init domain="strootje.com" />
-      </body>
-    </html>
+    return (
+      <I18nProvider value={locale}>
+        <html lang={locale()}>
+          <head>
+            <HeadContent />
+            <HydrationScript />
+          </head>
+
+          <body>
+            <Outlet />
+            <Scripts />
+            <Plausible.Init domain="strootje.com" />
+          </body>
+        </html>
+      </I18nProvider>
+    );
+  },
+
+  notFoundComponent: ({ routeId }) => (
+    <div>
+      <h1>Error: NOT FOUND</h1>
+      <pre>{routeId}</pre>
+    </div>
   ),
+
+  errorComponent: ({ error }) => {
+    console.error("ERROR", error);
+    return (
+      <div>
+        <h1>Error: {error.name}</h1>
+        <pre>{error.stack}</pre>
+      </div>
+    );
+  },
 });

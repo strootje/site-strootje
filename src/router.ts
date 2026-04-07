@@ -1,5 +1,42 @@
 import { routeTree } from "#/route-tree.gen.ts";
-import { createRouter } from "@tanstack/solid-router";
+import { composeRewrites, createRouter, LocationRewrite } from "@tanstack/solid-router";
+
+const createSubdomainRewrite = <Pathname extends `/${string}`>(
+  subdomains: Record<string, Pathname>,
+): LocationRewrite => ({
+  input: ({ url }) => {
+    const subdomain = url.hostname.split(".")[0];
+
+    const subpath = subdomains[subdomain];
+    if (subpath !== undefined) {
+      console.log("[INPUT]", url.pathname, "==>", subpath + url.pathname);
+      url.pathname = subpath + url.pathname;
+    }
+
+    return url;
+  },
+
+  output: ({ url }) => {
+    const subpathMapping = Object.entries(subdomains).find(([, subpath]) => url.pathname.startsWith(subpath));
+    if (subpathMapping !== undefined) {
+      const [subdomain, subpath] = subpathMapping;
+      const hostname = url.hostname.replace(`${subdomain}.`, "");
+      const pathname = url.pathname.replace(subpath, "") || "/";
+      console.log("[OUTPUT]", `${url.hostname}${url.pathname}`, "==>", `${subdomain}.${hostname}${pathname}`);
+      url.hostname = `${subdomain}.${hostname}`;
+      url.pathname = pathname;
+    }
+
+    const subdomainMapping = Object.entries(subdomains).find(([subdomain]) => url.hostname.startsWith(`${subdomain}.`));
+    if (subdomainMapping !== undefined && subpathMapping === undefined) {
+      const [subdomain] = subdomainMapping;
+      const hostname = url.hostname.replace(`${subdomain}.`, "");
+      url.hostname = hostname;
+    }
+
+    return url;
+  },
+});
 
 export const getRouter = () => {
   const router = createRouter({
@@ -7,25 +44,12 @@ export const getRouter = () => {
     scrollRestoration: true,
     routeTree,
 
-    rewrite: {
-      input: ({ url }) => {
-        const subdomain = url.hostname.split(".")[0];
-
-        if (subdomain === "links") {
-          url.pathname = "/links" + url.pathname;
-        }
-
-        return url;
-      },
-
-      output: ({ url }) => {
-        if (url.pathname.startsWith("/links")) {
-          url.pathname = url.pathname.replace(/^\/links/, "") || "/";
-        }
-
-        return url;
-      },
-    },
+    rewrite: composeRewrites([
+      createSubdomainRewrite({
+        admin: "/admin",
+        links: "/links",
+      }),
+    ]),
   });
 
   return router;

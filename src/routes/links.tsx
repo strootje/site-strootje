@@ -1,9 +1,11 @@
 import { Avatar } from "#/components/avatar.tsx";
+import { useI18n } from "#/components/context.i18n.ts";
 import { Icon } from "#/components/icon.tsx";
 import * as contentFns from "#/functions/content.functions.ts";
 import { Env } from "#/functions/env.service.ts";
 import { tw } from "@scope/util/uno";
 import { createFileRoute, Link } from "@tanstack/solid-router";
+import { createServerFn } from "@tanstack/solid-start";
 import { cx } from "class-variance-authority";
 import { Show } from "solid-js";
 
@@ -22,13 +24,17 @@ const subText = tw`-mt-1 text-stone-500 text-xs`;
 const footerNavLi = tw`b-1 b-transparent corner-squircle hover:b-rose-300 rounded-full hover:bg-rose-200/60`;
 const footerHref = tw`flex gap-1 px-3 py-2`;
 
+const getPersonalInfo = createServerFn()
+  .handler(() => (Env.PersonalInfo));
+
 export const Route = createFileRoute("/links")({
   loader: async () => ({
-    personalInfo: Env.PersonalInfo,
+    personalInfo: await getPersonalInfo(),
     recentArticle: (await contentFns.getRecent()).at(-1),
   }),
 
   component: () => {
+    const t = useI18n();
     const data = Route.useLoaderData();
 
     return (
@@ -39,10 +45,10 @@ export const Route = createFileRoute("/links")({
             seed={crypto.randomUUID()}
           />
 
-          <h1 class="text-2xl">Bas Stroosnijder</h1>
+          <h1 class="text-2xl">{t("bio.fullName")}</h1>
           <aside class={cx(subText, "text-center grid")}>
-            <span>Utrecht area</span>
-            <span>Senior .NET Engineer</span>
+            <span>{t("bio.jobTitle")}</span>
+            <span>{t("bio.area")}</span>
           </aside>
         </header>
 
@@ -54,7 +60,7 @@ export const Route = createFileRoute("/links")({
           <nav class={sectionNav}>
             <ul class={sectionNavUl}>
               <li class={sectionNavLi}>
-                <a class={sectionHref} href="https://strootje.com">
+                <Link class={sectionHref} to="/">
                   <div class={cx(iconWrapper, "bg-rose-800/20 text-rose-800")}>
                     <img class={imgFavicon} src="https://strootje.com/favicon.ico" />
                   </div>
@@ -65,7 +71,7 @@ export const Route = createFileRoute("/links")({
                   </div>
 
                   <Icon class="i-solar:arrow-right-outline" />
-                </a>
+                </Link>
               </li>
 
               <Show when={data().recentArticle}>

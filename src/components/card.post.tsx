@@ -45,7 +45,7 @@ export const RecentPost = (props: PostProps) => {
   return (
     <Link to="/blog/$slug" params={{ slug: props.post().slug }}>
       <article class="grid gap-2 bg-white p-2 hover:bg-stone-100">
-        <div class={cx(tw`h-1`, props.post().meta.tagClass ?? "bg-emerald-400")} />
+        <div class={cx(tw`h-1`, props.post().meta.tagClass ?? "bg-emerald-700")} />
 
         <aside class="flex gap-3 text-stone-600 text-xs">
           <span class="flex items-center gap-1">

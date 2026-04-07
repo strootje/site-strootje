@@ -11,7 +11,7 @@ export const Route = createFileRoute("/admin")({
   component: () => {
     return (
       <main class="grid-layout grid min-h-dvh content-start gap-8 bg-hero-yyy-black/2 bg-mauve-200 py-4">
-        <header class={cx(section, tw`b-b-2 b-emerald-700 flex items-baseline`)}>
+        <header class={cx(section, tw`b-b-2 b-orange-700 flex items-baseline`)}>
           <Link class={cx(otherNavHref, tw`text-2xl`)} to="/">
             <span>strootje.com</span>
           </Link>

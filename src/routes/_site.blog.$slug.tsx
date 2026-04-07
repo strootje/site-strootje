@@ -1,7 +1,7 @@
 import { Icon } from "#/components/icon.tsx";
 import * as contentFns from "#/functions/content.functions.ts";
 import * as statFns from "#/functions/stat.functions.ts";
-import { createFileRoute } from "@tanstack/solid-router";
+import { createFileRoute, Link } from "@tanstack/solid-router";
 import { formatDistanceWithOptions, formatDuration } from "date-fns/fp";
 import { ErrorBoundary, Show, Suspense } from "solid-js";
 
@@ -44,6 +44,11 @@ export const Route = createFileRoute("/_site/blog/$slug")({
                 </div>
               )}
             </Show>
+
+            <Link class="flex items-center gap-1" to="/admin/blog/$slug/edit" params={{ slug: data().article.slug }}>
+              <Icon class="i-solar:document-add-outline" />
+              <span>Edit</span>
+            </Link>
           </aside>
         </header>
 

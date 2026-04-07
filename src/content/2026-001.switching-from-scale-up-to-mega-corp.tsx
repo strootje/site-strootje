@@ -35,7 +35,7 @@ export const Article: ArticleExport = {
           </span>
         </p>
 
-        <p class="col-[hero] grid grid-cols-subgrid gap-4 bg-emerald-700 bg-hero-wiggle-black/5 py-8 text-stone-100 *:col-[content]">
+        <p class="grid gap-4 bg-emerald-700 bg-hero-wiggle-black/5 p-8 text-stone-100">
           <span>And we got to work.</span>
           <span>
             This is what I wish I could tell you about my first week at the RABOBANK. But reality has been a bit

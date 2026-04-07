@@ -9,6 +9,7 @@
     "@iconify-json/solar": "^1.2.5",
     "@julr/unocss-preset-heropatterns": "^2.0.0",
     "@plausible-analytics/tracker": "^0.4.4",
+    "@solid-primitives/i18n": "^2.2.1",
     "@standard-schema/spec": "^1.1.0",
     "@tanstack/nitro-v2-vite-plugin": "^1.154.9",
     "@tanstack/solid-form": "^1.28.6",
