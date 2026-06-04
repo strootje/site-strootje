@@ -25,7 +25,8 @@
 
   "imports": {
     "#/": "./src/",
-    "@std/path": "jsr:@std/path@^1.1.4"
+    "@std/path": "jsr:@std/path@^1.1.5",
+    "content-collections": "./.content-collections/generated/index.js"
   },
 
   "fmt": {

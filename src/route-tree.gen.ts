@@ -8,77 +8,72 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from "./routes/__root.tsx"
-import { Route as LinksRouteImport } from "./routes/links.tsx"
-import { Route as AdminRouteImport } from "./routes/admin.tsx"
-import { Route as SiteRouteImport } from "./routes/_site.tsx"
-import { Route as SiteIndexRouteImport } from "./routes/_site.index.tsx"
-import { Route as SiteBlogSlugRouteImport } from "./routes/_site.blog.$slug.tsx"
-import { Route as AdminBlogSlugEditRouteImport } from "./routes/admin.blog.$slug.edit.tsx"
+import { Route as rootRouteImport } from "./routes/__root.tsx";
+import { Route as LinksRouteImport } from "./routes/links.tsx";
+import { Route as AdminRouteImport } from "./routes/admin.tsx";
+import { Route as SiteRouteImport } from "./routes/_site.tsx";
+import { Route as SiteIndexRouteImport } from "./routes/_site.index.tsx";
+import { Route as SiteBlogIndexRouteImport } from "./routes/_site.blog.index.tsx";
+import { Route as SiteBlogSlugRouteImport } from "./routes/_site.blog.$slug.tsx";
 
 const LinksRoute = LinksRouteImport.update({
   id: "/links",
   path: "/links",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const AdminRoute = AdminRouteImport.update({
   id: "/admin",
   path: "/admin",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const SiteRoute = SiteRouteImport.update({
   id: "/_site",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const SiteIndexRoute = SiteIndexRouteImport.update({
   id: "/",
   path: "/",
   getParentRoute: () => SiteRoute,
-} as any)
+} as any);
+const SiteBlogIndexRoute = SiteBlogIndexRouteImport.update({
+  id: "/blog/",
+  path: "/blog/",
+  getParentRoute: () => SiteRoute,
+} as any);
 const SiteBlogSlugRoute = SiteBlogSlugRouteImport.update({
   id: "/blog/$slug",
   path: "/blog/$slug",
   getParentRoute: () => SiteRoute,
-} as any)
-const AdminBlogSlugEditRoute = AdminBlogSlugEditRouteImport.update({
-  id: "/blog/$slug/edit",
-  path: "/blog/$slug/edit",
-  getParentRoute: () => AdminRoute,
-} as any)
+} as any);
 
 export interface FileRoutesByFullPath {
-  "/": typeof SiteIndexRoute
-  "/admin": typeof AdminRouteWithChildren
-  "/links": typeof LinksRoute
-  "/blog/$slug": typeof SiteBlogSlugRoute
-  "/admin/blog/$slug/edit": typeof AdminBlogSlugEditRoute
+  "/": typeof SiteIndexRoute;
+  "/admin": typeof AdminRoute;
+  "/links": typeof LinksRoute;
+  "/blog/$slug": typeof SiteBlogSlugRoute;
+  "/blog/": typeof SiteBlogIndexRoute;
 }
 export interface FileRoutesByTo {
-  "/admin": typeof AdminRouteWithChildren
-  "/links": typeof LinksRoute
-  "/": typeof SiteIndexRoute
-  "/blog/$slug": typeof SiteBlogSlugRoute
-  "/admin/blog/$slug/edit": typeof AdminBlogSlugEditRoute
+  "/admin": typeof AdminRoute;
+  "/links": typeof LinksRoute;
+  "/": typeof SiteIndexRoute;
+  "/blog/$slug": typeof SiteBlogSlugRoute;
+  "/blog": typeof SiteBlogIndexRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  "/_site": typeof SiteRouteWithChildren
-  "/admin": typeof AdminRouteWithChildren
-  "/links": typeof LinksRoute
-  "/_site/": typeof SiteIndexRoute
-  "/_site/blog/$slug": typeof SiteBlogSlugRoute
-  "/admin/blog/$slug/edit": typeof AdminBlogSlugEditRoute
+  __root__: typeof rootRouteImport;
+  "/_site": typeof SiteRouteWithChildren;
+  "/admin": typeof AdminRoute;
+  "/links": typeof LinksRoute;
+  "/_site/": typeof SiteIndexRoute;
+  "/_site/blog/$slug": typeof SiteBlogSlugRoute;
+  "/_site/blog/": typeof SiteBlogIndexRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | "/"
-    | "/admin"
-    | "/links"
-    | "/blog/$slug"
-    | "/admin/blog/$slug/edit"
-  fileRoutesByTo: FileRoutesByTo
-  to: "/admin" | "/links" | "/" | "/blog/$slug" | "/admin/blog/$slug/edit"
+  fileRoutesByFullPath: FileRoutesByFullPath;
+  fullPaths: "/" | "/admin" | "/links" | "/blog/$slug" | "/blog/";
+  fileRoutesByTo: FileRoutesByTo;
+  to: "/admin" | "/links" | "/" | "/blog/$slug" | "/blog";
   id:
     | "__root__"
     | "/_site"
@@ -86,98 +81,90 @@ export interface FileRouteTypes {
     | "/links"
     | "/_site/"
     | "/_site/blog/$slug"
-    | "/admin/blog/$slug/edit"
-  fileRoutesById: FileRoutesById
+    | "/_site/blog/";
+  fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  SiteRoute: typeof SiteRouteWithChildren
-  AdminRoute: typeof AdminRouteWithChildren
-  LinksRoute: typeof LinksRoute
+  SiteRoute: typeof SiteRouteWithChildren;
+  AdminRoute: typeof AdminRoute;
+  LinksRoute: typeof LinksRoute;
 }
 
 declare module "@tanstack/solid-router" {
   interface FileRoutesByPath {
     "/links": {
-      id: "/links"
-      path: "/links"
-      fullPath: "/links"
-      preLoaderRoute: typeof LinksRouteImport
-      parentRoute: typeof rootRouteImport
-    }
+      id: "/links";
+      path: "/links";
+      fullPath: "/links";
+      preLoaderRoute: typeof LinksRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
     "/admin": {
-      id: "/admin"
-      path: "/admin"
-      fullPath: "/admin"
-      preLoaderRoute: typeof AdminRouteImport
-      parentRoute: typeof rootRouteImport
-    }
+      id: "/admin";
+      path: "/admin";
+      fullPath: "/admin";
+      preLoaderRoute: typeof AdminRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
     "/_site": {
-      id: "/_site"
-      path: ""
-      fullPath: "/"
-      preLoaderRoute: typeof SiteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
+      id: "/_site";
+      path: "";
+      fullPath: "/";
+      preLoaderRoute: typeof SiteRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
     "/_site/": {
-      id: "/_site/"
-      path: "/"
-      fullPath: "/"
-      preLoaderRoute: typeof SiteIndexRouteImport
-      parentRoute: typeof SiteRoute
-    }
+      id: "/_site/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof SiteIndexRouteImport;
+      parentRoute: typeof SiteRoute;
+    };
+    "/_site/blog/": {
+      id: "/_site/blog/";
+      path: "/blog";
+      fullPath: "/blog/";
+      preLoaderRoute: typeof SiteBlogIndexRouteImport;
+      parentRoute: typeof SiteRoute;
+    };
     "/_site/blog/$slug": {
-      id: "/_site/blog/$slug"
-      path: "/blog/$slug"
-      fullPath: "/blog/$slug"
-      preLoaderRoute: typeof SiteBlogSlugRouteImport
-      parentRoute: typeof SiteRoute
-    }
-    "/admin/blog/$slug/edit": {
-      id: "/admin/blog/$slug/edit"
-      path: "/blog/$slug/edit"
-      fullPath: "/admin/blog/$slug/edit"
-      preLoaderRoute: typeof AdminBlogSlugEditRouteImport
-      parentRoute: typeof AdminRoute
-    }
+      id: "/_site/blog/$slug";
+      path: "/blog/$slug";
+      fullPath: "/blog/$slug";
+      preLoaderRoute: typeof SiteBlogSlugRouteImport;
+      parentRoute: typeof SiteRoute;
+    };
   }
 }
 
 interface SiteRouteChildren {
-  SiteIndexRoute: typeof SiteIndexRoute
-  SiteBlogSlugRoute: typeof SiteBlogSlugRoute
+  SiteIndexRoute: typeof SiteIndexRoute;
+  SiteBlogSlugRoute: typeof SiteBlogSlugRoute;
+  SiteBlogIndexRoute: typeof SiteBlogIndexRoute;
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
   SiteIndexRoute: SiteIndexRoute,
   SiteBlogSlugRoute: SiteBlogSlugRoute,
-}
+  SiteBlogIndexRoute: SiteBlogIndexRoute,
+};
 
-const SiteRouteWithChildren = SiteRoute._addFileChildren(SiteRouteChildren)
-
-interface AdminRouteChildren {
-  AdminBlogSlugEditRoute: typeof AdminBlogSlugEditRoute
-}
-
-const AdminRouteChildren: AdminRouteChildren = {
-  AdminBlogSlugEditRoute: AdminBlogSlugEditRoute,
-}
-
-const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+const SiteRouteWithChildren = SiteRoute._addFileChildren(SiteRouteChildren);
 
 const rootRouteChildren: RootRouteChildren = {
   SiteRoute: SiteRouteWithChildren,
-  AdminRoute: AdminRouteWithChildren,
+  AdminRoute: AdminRoute,
   LinksRoute: LinksRoute,
-}
+};
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();
 
-import type { getRouter } from "./router.ts"
-import type { createStart } from "@tanstack/solid-start"
+import type { getRouter } from "./router.ts";
+import type { createStart } from "@tanstack/solid-start";
 declare module "@tanstack/solid-start" {
   interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
+    ssr: true;
+    router: Awaited<ReturnType<typeof getRouter>>;
   }
 }

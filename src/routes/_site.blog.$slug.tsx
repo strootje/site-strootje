@@ -3,7 +3,7 @@ import * as contentFns from "#/functions/content.functions.ts";
 import * as statFns from "#/functions/stat.functions.ts";
 import { createFileRoute, Link } from "@tanstack/solid-router";
 import { formatDistanceWithOptions, formatDuration } from "date-fns/fp";
-import { ErrorBoundary, Show, Suspense } from "solid-js";
+import { Show } from "solid-js";
 
 export const Route = createFileRoute("/_site/blog/$slug")({
   loader: async ({ location, params }) => ({
@@ -11,17 +11,24 @@ export const Route = createFileRoute("/_site/blog/$slug")({
     stats: await statFns.GetPageViews({ data: location }),
   }),
 
+  head: ({ loaderData }) => ({
+    meta: [
+      {
+        title: `${loaderData!.article.title} | strootje.com`,
+      },
+    ],
+  }),
+
   component: () => {
     const data = Route.useLoaderData();
-    const Content = contentFns.lazyContent(data().article.filename);
 
     return (
       <>
         <header class="grid gap-4 font-mono">
-          <h1 class="fw-700 text-xl">{data().article.meta.title}</h1>
+          <h1 class="fw-700 text-xl">{data().article.title}</h1>
 
           <aside class="flex flex-wrap justify-around gap-4 text-xs">
-            <Show when={data().article.meta.publishDate}>
+            <Show when={data().article.publishDate}>
               {(publishDate) => (
                 <div class="flex items-center gap-1">
                   <Icon class="i-solar:calendar-outline" />
@@ -52,11 +59,7 @@ export const Route = createFileRoute("/_site/blog/$slug")({
           </aside>
         </header>
 
-        <ErrorBoundary fallback={<p>error..</p>}>
-          <Suspense>
-            <Content />
-          </Suspense>
-        </ErrorBoundary>
+        <div class="prose" innerHTML={data().article.html} />
       </>
     );
   },

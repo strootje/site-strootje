@@ -15,6 +15,28 @@ export const Route = createRootRoute({
     links: [
       { rel: "icon", href: "/favicon.ico" },
     ],
+
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "strootje.com",
+          url: "https://strootje.com",
+          publisher: {
+            "@type": "Organization",
+            name: "strootje.com",
+            url: "https://strootje.com",
+            logo: "https://strootje.com/logo.png",
+            sameAs: [
+              "https://twitter.com/mycompany",
+              "https://github.com/mycompany",
+            ],
+          },
+        }),
+      },
+    ],
   }),
 
   component: () => {

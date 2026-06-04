@@ -67,7 +67,7 @@ export const Route = createFileRoute("/links")({
 
                   <div class="grid grow">
                     <span>strootje.com</span>
-                    <span class={subText}>Blog about Development, hacking and more..</span>
+                    <span class={subText}>Blog about development and more..</span>
                   </div>
 
                   <Icon class="i-solar:arrow-right-outline" />
@@ -83,9 +83,9 @@ export const Route = createFileRoute("/links")({
                       </div>
 
                       <div class="grid grow">
-                        <span>{latestPost().meta.title}</span>
+                        <span>{latestPost().title}</span>
                         <span class={subText}>
-                          {(latestPost().modifiedDate ?? latestPost().meta.publishDate).toString()}
+                          {(latestPost().modifiedDate ?? latestPost().publishDate).toString()}
                         </span>
                       </div>
 
