@@ -46,7 +46,6 @@ export const getRouter = () => {
 
     rewrite: composeRewrites([
       createSubdomainRewrite({
-        admin: "/admin",
         links: "/links",
       }),
     ]),

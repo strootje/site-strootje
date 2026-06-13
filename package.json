@@ -1,7 +1,7 @@
 {
   "type": "module",
   "dependencies": {
-    "@ark-ui/solid": "^5.37.0",
+    "@ark-ui/solid": "^5.37.1",
     "@content-collections/core": "^0.15.1",
     "@content-collections/markdown": "^0.1.4",
     "@content-collections/vite": "^0.3.0",
@@ -16,14 +16,14 @@
     "@standard-schema/spec": "^1.1.0",
     "@tanstack/nitro-v2-vite-plugin": "^1.155.0",
     "@tanstack/solid-form": "^1.33.0",
-    "@tanstack/solid-router": "^1.170.11",
-    "@tanstack/solid-start": "^1.168.20",
+    "@tanstack/solid-router": "^1.170.15",
+    "@tanstack/solid-start": "^1.168.25",
     "class-variance-authority": "^0.7.1",
     "date-fns": "^4.4.0",
     "neverthrow": "^8.2.0",
     "nitro": "^3.0.260603-beta",
     "solid-js": "^1.9.13",
-    "unocss": "^66.7.0",
+    "unocss": "^66.7.2",
     "valibot": "^1.4.1",
     "vite": "^7.3.5",
     "vite-plugin-solid": "^2.11.12"

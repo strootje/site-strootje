@@ -47,7 +47,8 @@ export const Route = createFileRoute("/_site/")({
                   </a>
                 </li>
 
-                <li>
+                {
+                  /* <li>
                   <a
                     href="https://strooware.nl"
                     class="flex items-center gap-1"
@@ -56,7 +57,8 @@ export const Route = createFileRoute("/_site/")({
                     <Icon class="i-solar:arrow-right-outline text-sm" />
                     <span>strooware.nl</span>
                   </a>
-                </li>
+                </li> */
+                }
               </ul>
             </aside>
           </header>

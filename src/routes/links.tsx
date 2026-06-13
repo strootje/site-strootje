@@ -85,7 +85,7 @@ export const Route = createFileRoute("/links")({
                       <div class="grid grow">
                         <span>{latestPost().title}</span>
                         <span class={subText}>
-                          {(latestPost().modifiedDate ?? latestPost().publishDate).toString()}
+                          {(latestPost().modifiedDate ?? latestPost().publishDate).toDateString()}
                         </span>
                       </div>
 
@@ -107,21 +107,6 @@ export const Route = createFileRoute("/links")({
 
           <nav class={sectionNav}>
             <ul class={sectionNavUl}>
-              <li class={sectionNavLi}>
-                <a class={sectionHref} href="https://www.linkedin.com/in/bas-stroosnijder" target="_blank">
-                  <div class={cx(iconWrapper, "bg-[#0A66C2]/20 text-[#0A66C2]")}>
-                    <Icon class="i-brand:linkedin-in text-2xl" />
-                  </div>
-
-                  <div class="grid grow">
-                    <span>LinkedIn</span>
-                    <span class={subText}>bas-stroosnijder</span>
-                  </div>
-
-                  <Icon class="i-solar:arrow-right-outline" />
-                </a>
-              </li>
-
               <li class={sectionNavLi}>
                 <a class={sectionHref} href="https://bsky.app/profile/basstroosnijder.bsky.social" target="_blank">
                   <div class={cx(iconWrapper, "bg-[#0085FF]/20 text-[#0085FF]")}>
@@ -151,11 +136,27 @@ export const Route = createFileRoute("/links")({
                   <Icon class="i-solar:arrow-right-outline" />
                 </a>
               </li>
+
+              <li class={sectionNavLi}>
+                <a class={sectionHref} href="https://www.linkedin.com/in/bas-stroosnijder" target="_blank">
+                  <div class={cx(iconWrapper, "bg-[#0A66C2]/20 text-[#0A66C2]")}>
+                    <Icon class="i-brand:linkedin-in text-2xl" />
+                  </div>
+
+                  <div class="grid grow">
+                    <span>LinkedIn</span>
+                    <span class={subText}>bas-stroosnijder</span>
+                  </div>
+
+                  <Icon class="i-solar:arrow-right-outline" />
+                </a>
+              </li>
             </ul>
           </nav>
         </section>
 
-        <section class={section}>
+        {
+          /* <section class={section}>
           <header class={sectionHeader}>
             <h2>Work</h2>
           </header>
@@ -197,7 +198,8 @@ export const Route = createFileRoute("/links")({
               </Show>
             </ul>
           </nav>
-        </section>
+        </section> */
+        }
 
         <footer class={section}>
           <nav>

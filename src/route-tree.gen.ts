@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from "./routes/__root.tsx";
 import { Route as LinksRouteImport } from "./routes/links.tsx";
-import { Route as AdminRouteImport } from "./routes/admin.tsx";
 import { Route as SiteRouteImport } from "./routes/_site.tsx";
 import { Route as SiteIndexRouteImport } from "./routes/_site.index.tsx";
 import { Route as SiteBlogIndexRouteImport } from "./routes/_site.blog.index.tsx";
@@ -19,11 +18,6 @@ import { Route as SiteBlogSlugRouteImport } from "./routes/_site.blog.$slug.tsx"
 const LinksRoute = LinksRouteImport.update({
   id: "/links",
   path: "/links",
-  getParentRoute: () => rootRouteImport,
-} as any);
-const AdminRoute = AdminRouteImport.update({
-  id: "/admin",
-  path: "/admin",
   getParentRoute: () => rootRouteImport,
 } as any);
 const SiteRoute = SiteRouteImport.update({
@@ -48,13 +42,11 @@ const SiteBlogSlugRoute = SiteBlogSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   "/": typeof SiteIndexRoute;
-  "/admin": typeof AdminRoute;
   "/links": typeof LinksRoute;
   "/blog/$slug": typeof SiteBlogSlugRoute;
   "/blog/": typeof SiteBlogIndexRoute;
 }
 export interface FileRoutesByTo {
-  "/admin": typeof AdminRoute;
   "/links": typeof LinksRoute;
   "/": typeof SiteIndexRoute;
   "/blog/$slug": typeof SiteBlogSlugRoute;
@@ -63,7 +55,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport;
   "/_site": typeof SiteRouteWithChildren;
-  "/admin": typeof AdminRoute;
   "/links": typeof LinksRoute;
   "/_site/": typeof SiteIndexRoute;
   "/_site/blog/$slug": typeof SiteBlogSlugRoute;
@@ -71,13 +62,12 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/" | "/admin" | "/links" | "/blog/$slug" | "/blog/";
+  fullPaths: "/" | "/links" | "/blog/$slug" | "/blog/";
   fileRoutesByTo: FileRoutesByTo;
-  to: "/admin" | "/links" | "/" | "/blog/$slug" | "/blog";
+  to: "/links" | "/" | "/blog/$slug" | "/blog";
   id:
     | "__root__"
     | "/_site"
-    | "/admin"
     | "/links"
     | "/_site/"
     | "/_site/blog/$slug"
@@ -86,7 +76,6 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   SiteRoute: typeof SiteRouteWithChildren;
-  AdminRoute: typeof AdminRoute;
   LinksRoute: typeof LinksRoute;
 }
 
@@ -97,13 +86,6 @@ declare module "@tanstack/solid-router" {
       path: "/links";
       fullPath: "/links";
       preLoaderRoute: typeof LinksRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/admin": {
-      id: "/admin";
-      path: "/admin";
-      fullPath: "/admin";
-      preLoaderRoute: typeof AdminRouteImport;
       parentRoute: typeof rootRouteImport;
     };
     "/_site": {
@@ -153,7 +135,6 @@ const SiteRouteWithChildren = SiteRoute._addFileChildren(SiteRouteChildren);
 
 const rootRouteChildren: RootRouteChildren = {
   SiteRoute: SiteRouteWithChildren,
-  AdminRoute: AdminRoute,
   LinksRoute: LinksRoute,
 };
 export const routeTree = rootRouteImport

@@ -13,8 +13,6 @@ export const Route = createFileRoute("/_site/blog/")({
 
     return (
       <div>
-        <span>Hello "/_site/blog/"!</span>
-
         <Index each={data().posts}>{(post) => <RecentPost post={post} />}</Index>
       </div>
     );

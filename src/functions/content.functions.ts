@@ -8,21 +8,24 @@ export type Post = typeof allPosts[number];
 export const getAll = createServerFn()
   .handler(() => {
     return allPosts
-      .filter((post) => isBefore(new Date(), post.publishDate));
+      .filter((post) => isBefore(new Date(), post.publishDate))
+      .toSorted((a, b) => a.publishDate > b.publishDate ? -1 : 1);
   });
 
 export const getFeatured = createServerFn()
   .handler(() => {
     return allPosts
       .filter((post) => post.featured)
-      .filter((post) => isBefore(new Date(), post.publishDate));
+      .filter((post) => isBefore(new Date(), post.publishDate))
+      .toSorted((a, b) => a.publishDate > b.publishDate ? -1 : 1);
   });
 
 export const getRecent = createServerFn()
   .handler(() => {
     return allPosts
       .filter((post) => !post.featured)
-      .filter((post) => isBefore(new Date(), post.publishDate));
+      .filter((post) => isBefore(new Date(), post.publishDate))
+      .toSorted((a, b) => a.publishDate > b.publishDate ? -1 : 1);
   });
 
 export const getForSlug = createServerFn()
