@@ -50,7 +50,7 @@ export const Route = createRootRoute({
 
       init({
         domain: "strootje.com",
-        endpoint: "https://stats.strooware.nl/api/event",
+        endpoint: "/api/event",
       });
     });
 
