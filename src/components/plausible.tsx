@@ -10,7 +10,7 @@ type PlausibleTrackProps = {
 export const Plausible = {
   Init: (props: PlausibleConfig) => (
     <ClientOnly>
-      <PlausibleInit {...mergeProps(props, { endpoint: "/api/event" })} />
+      <PlausibleInit {...mergeProps(props, { endpoint: "https://stats.strooware.nl/api/event" })} />
     </ClientOnly>
   ),
 
