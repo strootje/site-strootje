@@ -19,18 +19,11 @@ export const Route = createFileRoute("/_site/")({
         <section>
           <header class="grid gap-4">
             <h1 class="font-title text-3xl">
-              <div>Bouwen, Slopen maar vooral</div>
+              <div>Bouwen, Slopen en</div>
               <div>
                 <span class="fw-700 inline-block text-emerald-700 italic">leren</span> in het openbaar
               </div>
             </h1>
-            {
-              /*
-            <aside>
-              <span>Ik schrijf over alles wat ik interesant vind..</span>
-              <span>Je doet het er maar mee!</span>
-            </aside> */
-            }
 
             <aside>
               <div>Bas Stroosnijder</div>

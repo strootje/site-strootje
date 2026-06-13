@@ -73,7 +73,7 @@ export const Route = createFileRoute("/_site")({
                 {(field) => (
                   <field.TextField
                     class={cx(input, tw`bg-white/20`)}
-                    placeholder="<naam>@overheid.nl.gov"
+                    placeholder="Enter your email"
                     type="email"
                   />
                 )}
