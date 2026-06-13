@@ -102,14 +102,14 @@ export const Route = createFileRoute("/links")({
           <nav class={sectionNav}>
             <ul class={sectionNavUl}>
               <li class={sectionNavLi}>
-                <a class={sectionHref} href="https://bsky.app/profile/basstroosnijder.bsky.social" target="_blank">
+                <a class={sectionHref} href="https://bsky.app/profile/strootje.com" target="_blank">
                   <div class={cx(iconWrapper, "bg-[#0085FF]/20 text-[#0085FF]")}>
                     <Icon class="i-brand:bluesky text-2xl" />
                   </div>
 
                   <div class="grid grow">
                     <span>Bluesky</span>
-                    <span class={subText}>@basstroosnijder</span>
+                    <span class={subText}>@strootje.com</span>
                   </div>
 
                   <Icon class="i-solar:arrow-right-outline" />
