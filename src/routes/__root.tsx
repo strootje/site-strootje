@@ -1,7 +1,8 @@
 import { createLocale, I18nProvider } from "#/components/context.i18n.ts";
-import { Plausible } from "#/components/plausible.tsx";
+import { init } from "@plausible-analytics/tracker";
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/solid-router";
-import { HydrationScript } from "solid-js/web";
+import { onMount } from "solid-js";
+import { HydrationScript, isServer } from "solid-js/web";
 import "virtual:uno.css";
 
 export const Route = createRootRoute({
@@ -42,6 +43,17 @@ export const Route = createRootRoute({
   component: () => {
     const [locale] = createLocale();
 
+    onMount(() => {
+      if (isServer) {
+        return;
+      }
+
+      init({
+        domain: "strootje.com",
+        endpoint: "https://stats.strooware.nl/api/event",
+      });
+    });
+
     return (
       <I18nProvider value={locale}>
         <html lang={locale()}>
@@ -53,7 +65,6 @@ export const Route = createRootRoute({
           <body>
             <Outlet />
             <Scripts />
-            <Plausible.Init domain="strootje.com" />
           </body>
         </html>
       </I18nProvider>
