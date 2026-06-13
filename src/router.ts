@@ -1,5 +1,5 @@
 import { routeTree } from "#/route-tree.gen.ts";
-import { composeRewrites, createRouter, LocationRewrite } from "@tanstack/solid-router";
+import { createRouter, LocationRewrite } from "@tanstack/solid-router";
 
 const createSubdomainRewrite = <Pathname extends `/${string}`>(
   subdomains: Record<string, Pathname>,
@@ -9,7 +9,7 @@ const createSubdomainRewrite = <Pathname extends `/${string}`>(
 
     const subpath = subdomains[subdomain];
     if (subpath !== undefined) {
-      console.log("[INPUT]", url.hostname, url.pathname, "==>", subpath + url.pathname);
+      console.log("[INPUT]", subdomain, url.pathname, "==>", subpath + url.pathname);
       url.pathname = subpath + url.pathname;
     }
 
@@ -43,12 +43,11 @@ export const getRouter = () => {
     defaultViewTransition: true,
     scrollRestoration: true,
     routeTree,
-
-    rewrite: composeRewrites([
-      createSubdomainRewrite({
-        links: "/links",
-      }),
-    ]),
+    // rewrite: composeRewrites([
+    //   createSubdomainRewrite({
+    //     links: "/links",
+    //   }),
+    // ]),
   });
 
   return router;
