@@ -5,7 +5,6 @@ import { tw } from "@scope/util/uno";
 import { createFileRoute, Link, Outlet } from "@tanstack/solid-router";
 import { cx } from "class-variance-authority";
 import * as v from "valibot";
-// @ts-types="solid-js"
 
 const section = tw`col-[content]`;
 
