@@ -9,7 +9,7 @@ const createSubdomainRewrite = <Pathname extends `/${string}`>(
 
     const subpath = subdomains[subdomain];
     if (subpath !== undefined) {
-      console.log("[INPUT]", url.pathname, "==>", subpath + url.pathname);
+      console.log("[INPUT]", url.hostname, url.pathname, "==>", subpath + url.pathname);
       url.pathname = subpath + url.pathname;
     }
 
