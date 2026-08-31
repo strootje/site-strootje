@@ -1,8 +1,6 @@
 import { createLocale, I18nProvider } from "#/components/context.i18n.ts";
-import { init } from "@plausible-analytics/tracker";
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/solid-router";
-import { onMount } from "solid-js";
-import { HydrationScript, isServer } from "solid-js/web";
+import { HydrationScript } from "solid-js/web";
 import "virtual:uno.css";
 
 export const Route = createRootRoute({
@@ -30,10 +28,6 @@ export const Route = createRootRoute({
             name: "strootje.com",
             url: "https://strootje.com",
             logo: "https://strootje.com/logo.png",
-            sameAs: [
-              "https://twitter.com/mycompany",
-              "https://github.com/mycompany",
-            ],
           },
         }),
       },
@@ -42,17 +36,6 @@ export const Route = createRootRoute({
 
   component: () => {
     const [locale] = createLocale();
-
-    onMount(() => {
-      if (isServer) {
-        return;
-      }
-
-      init({
-        domain: "strootje.com",
-        endpoint: "/api/event",
-      });
-    });
 
     return (
       <I18nProvider value={locale}>

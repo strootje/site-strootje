@@ -29,7 +29,7 @@ export const getRecent = createServerFn()
   });
 
 export const getForSlug = createServerFn()
-  .inputValidator(v.object({ slug: v.string() }))
+  .validator(v.object({ slug: v.string() }))
   .handler(({ data }) => {
     const result = allPosts
       .find((post) => post.slug === data.slug);

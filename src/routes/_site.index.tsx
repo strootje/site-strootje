@@ -39,19 +39,6 @@ export const Route = createFileRoute("/_site/")({
                     <span>Linkedin</span>
                   </a>
                 </li>
-
-                {
-                  /* <li>
-                  <a
-                    href="https://strooware.nl"
-                    class="flex items-center gap-1"
-                    target="_blank"
-                  >
-                    <Icon class="i-solar:arrow-right-outline text-sm" />
-                    <span>strooware.nl</span>
-                  </a>
-                </li> */
-                }
               </ul>
             </aside>
           </header>

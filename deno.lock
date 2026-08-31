@@ -2,8 +2,6 @@
   "version": "5",
   "specifiers": {
     "jsr:@ryu/deno-lint-plugin-tailwindcss@0.2.0": "0.2.0",
-    "jsr:@std/internal@^1.0.14": "1.0.14",
-    "jsr:@std/path@^1.1.5": "1.1.5",
     "npm:@ark-ui/solid@^5.37.1": "5.37.1_solid-js@1.9.13",
     "npm:@content-collections/core@~0.15.1": "0.15.1_typescript@6.0.3",
     "npm:@content-collections/markdown@~0.1.4": "0.1.4_@content-collections+core@0.15.1__typescript@6.0.3_typescript@6.0.3",
@@ -14,11 +12,7 @@
     "npm:@iconify-json/fa7-brands@^1.2.2": "1.2.2",
     "npm:@iconify-json/solar@^1.2.5": "1.2.5",
     "npm:@julr/unocss-preset-heropatterns@2": "2.0.0_unocss@66.6.7__vite@7.3.5___lightningcss@1.32.0_vite@7.3.5__lightningcss@1.32.0",
-    "npm:@plausible-analytics/tracker@~0.4.5": "0.4.5",
     "npm:@solid-primitives/i18n@^2.2.1": "2.2.1_solid-js@1.9.13",
-    "npm:@standard-schema/spec@^1.1.0": "1.1.0",
-    "npm:@tanstack/nitro-v2-vite-plugin@^1.155.0": "1.155.0_vite@7.3.5__lightningcss@1.32.0_oxc-parser@0.135.0",
-    "npm:@tanstack/solid-form@^1.33.0": "1.33.0_solid-js@1.9.13",
     "npm:@tanstack/solid-router@^1.170.15": "1.170.15_solid-js@1.9.13",
     "npm:@tanstack/solid-start@^1.168.25": "1.168.25_solid-js@1.9.13_vite@7.3.5__lightningcss@1.32.0_vite-plugin-solid@2.11.12__solid-js@1.9.13__vite@7.3.5___lightningcss@1.32.0",
     "npm:class-variance-authority@~0.7.1": "0.7.1",
@@ -34,15 +28,6 @@
   "jsr": {
     "@ryu/deno-lint-plugin-tailwindcss@0.2.0": {
       "integrity": "1522555fefd6c6f7e6722b15201a7d76ee0e4fc273d4fc28892d587be132ba13"
-    },
-    "@std/internal@1.0.14": {
-      "integrity": "291516b3d4c35024d6ffbc0a9df5bf4c64116e05b50012cf846710152d2ffdf7"
-    },
-    "@std/path@1.1.5": {
-      "integrity": "ccea00982ea28c36becaf6e62f855406c76a8c32d462f66f415bbb7d83a271bc",
-      "dependencies": [
-        "jsr:@std/internal"
-      ]
     }
   },
   "npm": {
@@ -6258,9 +6243,6 @@
     }
   },
   "workspace": {
-    "dependencies": [
-      "jsr:@std/path@^1.1.5"
-    ],
     "packageJson": {
       "dependencies": [
         "npm:@ark-ui/solid@^5.37.1",
@@ -6273,11 +6255,7 @@
         "npm:@iconify-json/fa7-brands@^1.2.2",
         "npm:@iconify-json/solar@^1.2.5",
         "npm:@julr/unocss-preset-heropatterns@2",
-        "npm:@plausible-analytics/tracker@~0.4.5",
         "npm:@solid-primitives/i18n@^2.2.1",
-        "npm:@standard-schema/spec@^1.1.0",
-        "npm:@tanstack/nitro-v2-vite-plugin@^1.155.0",
-        "npm:@tanstack/solid-form@^1.33.0",
         "npm:@tanstack/solid-router@^1.170.15",
         "npm:@tanstack/solid-start@^1.168.25",
         "npm:class-variance-authority@~0.7.1",
