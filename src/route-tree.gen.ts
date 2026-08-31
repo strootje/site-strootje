@@ -9,19 +9,19 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from "./routes/__root.tsx";
-import { Route as LinksRouteImport } from "./routes/links.tsx";
 import { Route as SiteRouteImport } from "./routes/_site.tsx";
+import { Route as LinksRouteImport } from "./routes/links.tsx";
 import { Route as SiteIndexRouteImport } from "./routes/_site.index.tsx";
 import { Route as SiteBlogIndexRouteImport } from "./routes/_site.blog.index.tsx";
 import { Route as SiteBlogSlugRouteImport } from "./routes/_site.blog.$slug.tsx";
 
+const SiteRoute = SiteRouteImport.update({
+  id: "/_site",
+  getParentRoute: () => rootRouteImport,
+} as any);
 const LinksRoute = LinksRouteImport.update({
   id: "/links",
   path: "/links",
-  getParentRoute: () => rootRouteImport,
-} as any);
-const SiteRoute = SiteRouteImport.update({
-  id: "/_site",
   getParentRoute: () => rootRouteImport,
 } as any);
 const SiteIndexRoute = SiteIndexRouteImport.update({
@@ -81,18 +81,18 @@ export interface RootRouteChildren {
 
 declare module "@tanstack/solid-router" {
   interface FileRoutesByPath {
-    "/links": {
-      id: "/links";
-      path: "/links";
-      fullPath: "/links";
-      preLoaderRoute: typeof LinksRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
     "/_site": {
       id: "/_site";
       path: "";
       fullPath: "/";
       preLoaderRoute: typeof SiteRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/links": {
+      id: "/links";
+      path: "/links";
+      fullPath: "/links";
+      preLoaderRoute: typeof LinksRouteImport;
       parentRoute: typeof rootRouteImport;
     };
     "/_site/": {
