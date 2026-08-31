@@ -4,9 +4,7 @@ import { createFileRoute, Link, Outlet } from "@tanstack/solid-router";
 import { cx } from "class-variance-authority";
 
 const section = tw`col-[content]`;
-
 const otherNavHref = tw`flex items-center gap-1 px-2 py-1`;
-const input = tw`w-full px-4 py-2`;
 
 export const Route = createFileRoute("/_site")({
   component: () => {

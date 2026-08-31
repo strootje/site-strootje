@@ -10,7 +10,6 @@ const posts = defineCollection({
     title: v.string(),
     description: v.string(),
     publishDate: v.pipe(v.string(), v.toDate()),
-    featured: v.optional(v.boolean(), false),
     content: v.string(),
   }),
 

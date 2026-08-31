@@ -10,37 +10,6 @@ type PostProps = {
   post: Accessor<Post>;
 };
 
-export const FeaturedPost = (props: PostProps) => {
-  return (
-    <Link to="/blog/$slug" params={{ slug: props.post().slug }}>
-      <article class="bg-white hover:bg-stone-100">
-        <header>
-          <div class="flex h-30 items-center justify-center bg-emerald-700 bg-hero-wiggle-black/5">
-            <Icon class="i-brand:kubernetes scale-400 text-sky-300 text-xl" />
-          </div>
-        </header>
-
-        <div class="p-4">
-          <aside class="flex gap-3 text-stone-600 text-xs">
-            <span class="flex items-center gap-1">
-              <Icon class="i-solar:calendar-outline" />
-              <span>
-                {formatDistanceWithOptions(
-                  { addSuffix: true },
-                  Date.now(),
-                  props.post().publishDate,
-                )}
-              </span>
-            </span>
-          </aside>
-          <h3 class="font-title text-2xl">{props.post().title}</h3>
-          <span class="text-sm text-stone-500">{props.post().description}</span>
-        </div>
-      </article>
-    </Link>
-  );
-};
-
 export const RecentPost = (props: PostProps) => {
   return (
     <Link to="/blog/$slug" params={{ slug: props.post().slug }}>
@@ -65,17 +34,6 @@ export const RecentPost = (props: PostProps) => {
         </header>
 
         <div class="text-stone-500 text-xs">{props.post().description}</div>
-      </article>
-    </Link>
-  );
-};
-
-export const ArchivePost = (props: PostProps) => {
-  return (
-    <Link to="/blog/$slug" params={{ slug: props.post().slug }}>
-      <article class="group flex items-center gap-2 bg-white p-4 hover:bg-stone-100">
-        <h3 class="grow font-title">{props.post().title}</h3>
-        <Icon class="i-solar:arrow-right-outline transition group-hover:translate-x-1" />
       </article>
     </Link>
   );
