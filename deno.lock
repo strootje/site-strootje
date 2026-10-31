@@ -7,8 +7,8 @@
     "npm:@content-collections/markdown@~0.1.4": "0.1.4_@content-collections+core@0.15.3_typescript@7.0.2",
     "npm:@content-collections/vite@~0.3.1": "0.3.1_@content-collections+core@0.15.3_vite@8.3.5",
     "npm:@deno/vite-plugin@^1.0.6": "1.0.6_vite@8.3.5",
-    "npm:@dicebear/collection@^9.4.2": "9.4.2_@dicebear+core@9.4.3",
     "npm:@dicebear/core@^10.7.0": "10.7.0",
+    "npm:@dicebear/styles@^10.6.0": "10.6.0",
     "npm:@iconify-json/fa7-brands@^1.2.4": "1.2.4",
     "npm:@iconify-json/solar@^1.2.13": "1.2.13",
     "npm:@julr/unocss-preset-heropatterns@2": "2.0.0_unocss@66.6.7_vite@8.3.5",
@@ -523,6 +523,9 @@
       "dependencies": [
         "@dicebear/core@9.4.3"
       ]
+    },
+    "@dicebear/styles@10.6.0": {
+      "integrity": "sha512-KhxbEVI+z8TaenX58+ZhIRFBt7adggu/F+8g6ZYLu43H2/lgLuWA3Kg8vHBrCVWdfTTTt1p2wUhQomIkkypTuQ=="
     },
     "@dicebear/thumbs@9.4.2_@dicebear+core@9.4.3": {
       "integrity": "sha512-ccWvDBqbkWS5uzHbsg5L6uML6vBfX7jT3J3jHCQksvz8haHItxTK02w+6e1UavZUsvza4lG5X/XY3eji3siJ4Q==",
@@ -3945,8 +3948,8 @@
         "npm:@content-collections/markdown@~0.1.4",
         "npm:@content-collections/vite@~0.3.1",
         "npm:@deno/vite-plugin@^1.0.6",
-        "npm:@dicebear/collection@^9.4.2",
         "npm:@dicebear/core@^10.7.0",
+        "npm:@dicebear/styles@^10.6.0",
         "npm:@iconify-json/fa7-brands@^1.2.4",
         "npm:@iconify-json/solar@^1.2.13",
         "npm:@julr/unocss-preset-heropatterns@2",
