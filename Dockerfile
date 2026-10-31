@@ -1,4 +1,4 @@
-ARG DENO_VERSION=2.8.1
+ARG DENO_VERSION=2.9.8
 
 FROM docker.io/denoland/deno:${DENO_VERSION} AS deps
 WORKDIR /build
